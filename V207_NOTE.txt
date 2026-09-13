@@ -1,0 +1,4 @@
+v207
+- Replaced single test source flow with movie-based mapping structure.
+- Preserved modal position and existing navigation.
+- Prepared for real trailer URLs.

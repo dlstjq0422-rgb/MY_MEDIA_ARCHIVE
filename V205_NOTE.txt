@@ -1,0 +1,5 @@
+v205
+- Added video binding layer.
+- Kept v204 DOM/title binding.
+- Preserved modal position and existing pages.
+- Video source map ready.

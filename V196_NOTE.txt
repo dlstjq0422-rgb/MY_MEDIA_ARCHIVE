@@ -1,0 +1,4 @@
+v196
+- Fixed trailer modal positioning only.
+- Kept isolated trailer module approach.
+- No existing page/navigation changes.

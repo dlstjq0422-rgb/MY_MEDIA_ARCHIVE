@@ -1,0 +1,10 @@
+v248
+
+KEEP:
+- Existing pages/layout/navigation
+- Center trailer modal
+- Single player structure
+
+CHANGE:
+- Stop/pause/reset video when trailer closes.
+- Playback cleanup only.

@@ -1,0 +1,9 @@
+v257
+
+KEEP:
+- Existing pages/layout/navigation
+- Center trailer modal
+- Working playback and close behavior
+
+CHANGE:
+- Source bind result -> player playback connection only.

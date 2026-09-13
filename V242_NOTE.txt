@@ -1,0 +1,9 @@
+v242
+
+KEEP:
+- Existing pages/layout/navigation
+- Center modal
+- Single player structure
+
+CHANGE:
+- Final trailer source mapping and direct player call only.

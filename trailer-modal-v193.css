@@ -1,0 +1,41 @@
+
+.trailer-modal-v193{
+ display:none;
+ position:fixed;
+ inset:0;
+ z-index:9999;
+ background:rgba(0,0,0,.75);
+ align-items:center;
+ justify-content:center;
+}
+.trailer-modal-box-v193{
+ width:600px;
+ background:#111827;
+ padding:30px;
+ border-radius:20px;
+}
+
+
+/* v197 actual trailer modal placement fix */
+#TRAILER_MODAL_V195,
+#TRAILER_MODAL_V193,
+#TRAILER_MODAL_V197,
+.trailer-modal-v195,
+.trailer-modal-v193 {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    display: none;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 !important;
+    transform: none !important;
+}
+
+.trailer-modal-v195 > div,
+.trailer-modal-v193 > div,
+.trailer-box-v197 {
+    position: relative !important;
+    margin: 0 auto !important;
+}

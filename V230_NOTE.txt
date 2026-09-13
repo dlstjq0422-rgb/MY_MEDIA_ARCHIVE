@@ -1,0 +1,9 @@
+v230
+
+KEEP:
+- Existing pages/layout/navigation
+- Center modal
+- Single trailer player
+
+CHANGE:
+- Trailer source handling layer only.

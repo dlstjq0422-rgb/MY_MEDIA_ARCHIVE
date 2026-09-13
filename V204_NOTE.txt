@@ -1,0 +1,5 @@
+v204
+- Fixed using actual trailer DOM structure.
+- Card class: trailer-card-v152
+- Title element: h2
+- Kept modal/layout/navigation untouched.

@@ -1,0 +1,4 @@
+v191 Trailer module rebuild
+- Existing site preserved from v190
+- Trailer functionality isolated
+- No global document click injection

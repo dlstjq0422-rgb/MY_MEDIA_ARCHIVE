@@ -1,0 +1,9 @@
+v235
+
+KEEP:
+- Existing pages/layout/navigation
+- Center modal
+- Single player structure
+
+CHANGE:
+- Connected playback data to player flow.

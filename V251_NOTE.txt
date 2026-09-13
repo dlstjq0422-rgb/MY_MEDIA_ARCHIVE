@@ -1,0 +1,10 @@
+v251
+
+KEEP:
+- Existing pages/layout/navigation
+- Center trailer modal
+- Player structure
+
+CHANGE:
+- Direct trailer modal cleanup.
+- Remove active video on close.

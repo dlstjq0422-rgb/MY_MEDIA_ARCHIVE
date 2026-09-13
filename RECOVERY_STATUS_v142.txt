@@ -1,0 +1,10 @@
+MY MEDIA ARCHIVE v142 Recovery Base
+
+Base:
+v80.6 restored UI
+
+Rules:
+- Existing UI preserved
+- Existing background preserved
+- New features should be added separately
+- Trailer rebuild will be isolated

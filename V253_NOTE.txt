@@ -1,0 +1,10 @@
+v253
+
+KEEP:
+- Existing pages/layout/navigation
+- Center trailer modal
+- Close cleanup behavior from v252
+
+CHANGE:
+- Remove forced mute behavior.
+- Allow normal audio playback on start.

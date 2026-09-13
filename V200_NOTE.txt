@@ -1,0 +1,5 @@
+v200
+- Prepared trailer source mapping structure.
+- Existing modal/video layout preserved.
+- No navigation/background changes.
+- Video source connection ready for next step.

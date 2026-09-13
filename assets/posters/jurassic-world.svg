@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1200" viewBox="0 0 800 1200">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#101614"/>
+    <stop offset="100%" stop-color="#314d3b"/>
+  </linearGradient>
+  <radialGradient id="glow" cx="50%" cy="25%" r="65%">
+    <stop offset="0%" stop-color="#e0c36b" stop-opacity="0.35"/>
+    <stop offset="100%" stop-color="#e0c36b" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="800" height="1200" fill="url(#bg)"/>
+<rect width="800" height="1200" fill="url(#glow)"/>
+<circle cx="400" cy="330" r="190" fill="none" stroke="#e0c36b" stroke-width="18" opacity="0.45"/>
+<circle cx="400" cy="330" r="155" fill="rgba(0,0,0,0.35)"/>
+<path d="M285 315 L515 315" stroke="#e0c36b" stroke-width="10" opacity="0.45"/>
+<rect x="0" y="860" width="800" height="340" fill="rgba(0,0,0,0.55)"/>
+<text x="70" y="920" font-family="Arial" font-size="82" font-weight="800" fill="white" letter-spacing="2">JURASSIC</text>
+<text x="70" y="1015" font-family="Arial" font-size="82" font-weight="800" fill="white" letter-spacing="2">WORLD</text>
+<text x="72" y="1130" font-family="Arial" font-size="28" font-weight="600" fill="#e0c36b" letter-spacing="3">ADVENTURE • 2025</text>
+</svg>

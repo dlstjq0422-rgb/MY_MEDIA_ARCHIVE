@@ -1,0 +1,5 @@
+v192
+- Built trailer cards only.
+- Kept v191 isolated module approach.
+- No global click handlers added.
+- No player/iframe added.

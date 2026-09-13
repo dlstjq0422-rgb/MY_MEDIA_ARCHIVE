@@ -1,0 +1,9 @@
+v232
+
+KEEP:
+- Existing pages/layout/navigation
+- Center modal
+- Single player structure
+
+CHANGE:
+- Trailer content data only.

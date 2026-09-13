@@ -1,0 +1,4 @@
+v198
+- Added only trailer modal player area.
+- Existing modal positioning preserved.
+- No global navigation/event changes.

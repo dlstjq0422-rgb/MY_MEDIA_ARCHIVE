@@ -1,0 +1,5 @@
+v201
+- Added trailer card selection binding.
+- Modal title updates from selected movie.
+- Existing modal position/layout preserved.
+- No navigation changes.

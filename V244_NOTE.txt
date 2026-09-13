@@ -1,0 +1,10 @@
+v244
+
+KEEP:
+- Existing pages/layout/navigation
+- Center trailer modal
+- Single player structure
+
+CHANGE:
+- Direct real playback call only.
+- No new UI layers.

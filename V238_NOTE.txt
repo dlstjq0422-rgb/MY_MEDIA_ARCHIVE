@@ -1,0 +1,9 @@
+v238
+
+KEEP:
+- Existing pages/layout/navigation
+- Center modal
+- Single player structure
+
+CHANGE:
+- Playback engine layer only.

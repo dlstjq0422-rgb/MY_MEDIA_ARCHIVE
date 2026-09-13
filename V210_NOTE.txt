@@ -1,0 +1,4 @@
+v210
+- Removed duplicate trailer display behavior.
+- Kept a single iframe modal path.
+- Preserved existing navigation/layout.

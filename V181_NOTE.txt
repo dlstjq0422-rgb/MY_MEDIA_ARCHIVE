@@ -1,0 +1,4 @@
+v181
+- Added trailer data mapping structure.
+- Card title is now used to select trailer source.
+- Existing player/modal preserved.

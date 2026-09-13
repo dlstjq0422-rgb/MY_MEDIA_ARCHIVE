@@ -1,0 +1,5 @@
+v146
+Trailer independent navigation stage.
+Goal:
+- add real visible trailer page entry
+- preserve existing UI

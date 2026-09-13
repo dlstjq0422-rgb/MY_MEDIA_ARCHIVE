@@ -1,0 +1,9 @@
+v239
+
+KEEP:
+- Existing pages/layout/navigation
+- Center modal
+- Single player structure
+
+CHANGE:
+- Playback test layer only.

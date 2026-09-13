@@ -1,0 +1,10 @@
+v252
+
+KEEP:
+- Existing pages/layout/navigation
+- Center trailer modal
+- Player UI
+
+CHANGE:
+- Close flow cleanup hook.
+- Stop active media before modal closes.

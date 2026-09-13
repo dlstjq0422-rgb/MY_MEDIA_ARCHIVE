@@ -1,0 +1,9 @@
+v246
+
+KEEP:
+- Existing pages/layout/navigation
+- Center trailer modal
+- Single player structure
+
+CHANGE:
+- Test video source injection only.

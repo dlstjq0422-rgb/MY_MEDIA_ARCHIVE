@@ -1,0 +1,9 @@
+v236
+
+KEEP:
+- Existing pages/layout/navigation
+- Center modal
+- Single player structure
+
+CHANGE:
+- Player connection flow only.

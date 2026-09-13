@@ -1,0 +1,4 @@
+v219
+- Kept stable trailer modal structure.
+- Added final YouTube ID mapping layer.
+- No layout/modal/navigation changes.

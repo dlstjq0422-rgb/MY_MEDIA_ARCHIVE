@@ -1,0 +1,9 @@
+v247
+
+KEEP:
+- Existing pages/layout/navigation
+- Center trailer modal
+- Single player structure
+
+CHANGE:
+- Connected trailer button click to test video source.

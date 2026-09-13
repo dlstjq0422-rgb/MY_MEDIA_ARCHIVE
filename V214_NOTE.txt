@@ -1,0 +1,5 @@
+v214
+- Trailer area rebuilt after cleanup.
+- Removed accumulated trailer modules.
+- Single modal path.
+- Existing non-trailer sections preserved.

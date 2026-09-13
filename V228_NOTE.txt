@@ -1,0 +1,8 @@
+v228
+KEEP:
+- Existing pages/layout/navigation
+- Center modal
+- Single player
+
+CHANGE:
+- Trailer source connector only.

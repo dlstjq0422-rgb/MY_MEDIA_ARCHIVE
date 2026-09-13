@@ -1,0 +1,9 @@
+v259
+
+KEEP:
+- Existing pages/layout/navigation
+- Center trailer modal
+- Working playback and close behavior
+
+CHANGE:
+- Final source handoff preparation only.

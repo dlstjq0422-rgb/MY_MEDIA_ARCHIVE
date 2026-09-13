@@ -1,0 +1,9 @@
+v249
+
+KEEP:
+- Existing pages/layout/navigation
+- Center trailer modal
+- Player structure
+
+CHANGE:
+- Robust audio/video shutdown on trailer close.

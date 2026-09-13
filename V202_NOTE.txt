@@ -1,0 +1,6 @@
+v202
+- Real trailer card binding.
+- Clicked card data is now read directly.
+- Video element receives selected source.
+- Modal position/layout untouched.
+- Existing pages untouched.

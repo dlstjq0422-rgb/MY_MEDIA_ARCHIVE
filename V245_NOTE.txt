@@ -1,0 +1,9 @@
+v245
+
+KEEP:
+- Existing pages/layout/navigation
+- Center trailer modal
+- Single player structure
+
+CHANGE:
+- Final playback attach/play handling only.

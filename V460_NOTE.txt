@@ -1,0 +1,4 @@
+MY MEDIA ARCHIVE v460
+- Live trailer FEED 실제 데이터 확장
+- category reset fix
+- refresh random rotation fix

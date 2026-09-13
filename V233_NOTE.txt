@@ -1,0 +1,9 @@
+v233
+
+KEEP:
+- Existing pages/layout/navigation
+- Center modal
+- Single player structure
+
+CHANGE:
+- Trailer content binding layer only.

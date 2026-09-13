@@ -1,0 +1,9 @@
+v240
+
+KEEP:
+- Existing pages/layout/navigation
+- Center modal
+- Single player structure
+
+CHANGE:
+- Source preparation layer only.

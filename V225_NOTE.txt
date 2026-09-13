@@ -1,0 +1,8 @@
+v225
+KEEP:
+- Existing pages/layout/navigation
+- Center modal
+- Single video player
+
+CHANGE:
+- Trailer source handling only.

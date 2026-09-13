@@ -1,0 +1,9 @@
+v258
+
+KEEP:
+- Existing pages/layout/navigation
+- Center trailer modal
+- Working playback and close behavior
+
+CHANGE:
+- Movie trailer source mapping layer only.

@@ -1,0 +1,25 @@
+
+/* v403 actual trailer poster render fix */
+.trailer-poster-v152.poster-image-v166.poster-visible-v391{
+    background-size:cover !important;
+    background-position:center !important;
+    background-repeat:no-repeat !important;
+}
+.trailer-poster-v152.poster-image-v166.poster-visible-v391.poster-avatar-v403{
+    background-image:url('assets/posters/avatar-fire-and-ash.svg') !important;
+}
+.trailer-poster-v152.poster-image-v166.poster-visible-v391.poster-superman-v403{
+    background-image:url('assets/posters/superman.svg') !important;
+}
+.trailer-poster-v152.poster-image-v166.poster-visible-v391.poster-mi-v403{
+    background-image:url('assets/posters/mission-impossible.svg') !important;
+}
+.trailer-poster-v152.poster-image-v166.poster-visible-v391.poster-ff-v403{
+    background-image:url('assets/posters/fantastic-four.svg') !important;
+}
+.trailer-poster-v152.poster-image-v166.poster-visible-v391.poster-jw-v403{
+    background-image:url('assets/posters/jurassic-world.svg') !important;
+}
+.trailer-poster-v152.poster-image-v166.poster-visible-v391.poster-f1-v403{
+    background-image:url('assets/posters/f1.svg') !important;
+}

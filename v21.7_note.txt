@@ -1,0 +1,5 @@
+MY MEDIA ARCHIVE v21.7
+- Existing functions preserved.
+- Cinematic background polish update.
+- Added subtle Ken Burns motion.
+- Unified background tone and contrast.

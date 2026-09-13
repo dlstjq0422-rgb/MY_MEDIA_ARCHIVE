@@ -1,0 +1,2425 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>MY MEDIA ARCHIVE v32.3</title>
+  <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="trailer-modal-v193.css">
+
+<style>
+.poster-visible-v391{
+position:relative;
+display:flex;
+align-items:flex-end;
+justify-content:center;
+padding-bottom:22px;
+overflow:hidden;
+background:
+linear-gradient(to top,rgba(0,0,0,.85),rgba(20,20,35,.25)),
+linear-gradient(135deg,#24324a,#08090f);
+}
+.poster-visible-v391 span{
+position:relative;
+z-index:2;
+font-size:20px;
+font-weight:700;
+text-align:center;
+padding:0 15px;
+}
+.poster-visible-v391 b{
+position:absolute;
+right:15px;
+bottom:15px;
+width:42px;
+height:42px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+background:white;
+color:#111;
+font-style:normal;
+}
+</style>
+
+<link rel="stylesheet" href="trailer-poster-area-clean-v399.css">
+<link rel="stylesheet" href="trailer-real-poster-v401.css">
+  <link rel="stylesheet" href="trailer-real-posters-v402.css">
+<link rel="stylesheet" href="trailer-render-poster-v403.css">
+</head>
+<body>
+<div id="cinematic-background"></div>
+<div id="cinematic-overlay"></div>
+
+  <div class="bg-layer bg-a" aria-hidden="true"></div>
+  <div class="bg-layer bg-b" aria-hidden="true"></div>
+  <div class="cinema-grade" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <button class="brand" data-page="home" aria-label="홈으로">🎬 <span>MY MEDIA ARCHIVE</span></button>
+    <nav class="nav">
+      <button class="nav-btn active" data-page="home">HOME</button>
+      <button class="nav-btn" data-page="collection">COLLECTION</button>
+      <button class="nav-btn" data-page="add">ADD</button>
+      <button class="nav-btn" data-page="report">REPORT</button>
+      <button class="nav-btn" data-page="trailer">TRAILER</button>
+    
+
+</nav>
+  </header>
+
+  <main class="shell">
+    
+<section id="trailer" class="page">
+  <div class="trailer-real-v152">
+    <h1>TRAILER</h1>
+    <p>최신 영화 예고편 피드</p>
+
+    
+<div class="trailer-grid-v152">
+<div class="trailer-card-v152"><div class="trailer-poster-v152 poster-image-v166 poster-visible-v391 poster-avatar-v403"><b>▶</b></div><h2>Avatar: Fire and Ash</h2><p><div class="movie-meta-v167"><span class="movie-tag-v167">Disney</span><span class="movie-tag-v167">Sci-Fi</span><span class="movie-tag-v167">2025</span></div></p><button class="trailer-open-v171">예고편 보기</button></div>
+<div class="trailer-card-v152"><div class="trailer-poster-v152 poster-image-v166 poster-visible-v391 poster-superman-v403"><b>▶</b></div><h2>Superman</h2><p><div class="movie-meta-v167"><span class="movie-tag-v167">DC</span><span class="movie-tag-v167">Action</span><span class="movie-tag-v167">2025</span></div></p><button class="trailer-open-v171">예고편 보기</button></div>
+<div class="trailer-card-v152"><div class="trailer-poster-v152 poster-image-v166 poster-visible-v391 poster-mi-v403"><b>▶</b></div><h2>Mission: Impossible</h2><p><div class="movie-meta-v167"><span class="movie-tag-v167">Action</span><span class="movie-tag-v167">Coming Soon</span></div></p><button class="trailer-open-v171">예고편 보기</button></div>
+<div class="trailer-card-v152"><div class="trailer-poster-v152 poster-image-v166 poster-visible-v391 poster-ff-v403"><b>▶</b></div><h2>Fantastic Four</h2><p>Marvel · 2025</p><button class="trailer-open-v171">예고편 보기</button></div>
+<div class="trailer-card-v152"><div class="trailer-poster-v152 poster-image-v166 poster-visible-v391 poster-jw-v403"><b>▶</b></div><h2>Jurassic World</h2><p>Adventure · 2025</p><button class="trailer-open-v171">예고편 보기</button></div>
+<div class="trailer-card-v152"><div class="trailer-poster-v152 poster-image-v166 poster-visible-v391 poster-f1-v403"><b>▶</b></div><h2>F1</h2><p>Sports · Drama</p><button class="trailer-open-v171">예고편 보기</button></div>
+</div>
+
+</section>
+
+<section id="home" class="page active">
+      <div class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">PERSONAL OTT ARCHIVE</p>
+          <h1>나만의 미디어 라이브러리</h1>
+          <p class="hero-desc">영화 · 드라마 · 애니메이션의 기억과 취향이 쌓이는 공간</p>
+          <div class="hero-actions">
+            <button class="primary" data-page-jump="add">+ 작품 추가</button>
+            <button class="secondary" data-page-jump="collection">컬렉션 보기</button>
+          </div>
+        </div>
+      </div>
+
+      <section class="home-strip">
+        <div class="strip-head"><h2>최근 감상</h2><span>RECENTLY ADDED</span></div>
+        <div id="recentRow" class="media-row"></div>
+
+        <div class="home-actions">
+          <button class="action-card primary" onclick="switchPage('add')">
+            <span class="action-kicker">QUICK ACTION</span>
+            <strong>새 작품 추가</strong>
+            <em>방금 본 영화, 드라마, 애니메이션을 바로 기록</em>
+          </button>
+          <button class="action-card" onclick="switchPage('collection')">
+            <span class="action-kicker">LIBRARY</span>
+            <strong>컬렉션 보기</strong>
+            <em>내가 저장한 작품과 리뷰를 한눈에 확인</em>
+          </button>
+          <button class="action-card" onclick="switchPage('report')">
+            <span class="action-kicker">INSIGHT</span>
+            <strong>리포트 보기</strong>
+            <em>평점, 장르 분포, 감상 기록을 요약해서 보기</em>
+          </button>
+        </div>
+
+        <section class="ott-row">
+          <div class="row-head">
+            <h3>바로 시작하기</h3>
+            <span>MY MEDIA FLOW</span>
+          </div>
+          <div class="poster-strip">
+            <button class="poster-card" onclick="switchPage('add')"><b>감상 기록</b><span>작품명 / 평점 / 후기 등록</span></button>
+            <button class="poster-card" onclick="switchPage('collection')"><b>내 컬렉션</b><span>저장된 작품 모아보기</span></button>
+            <button class="poster-card" onclick="switchPage('report')"><b>취향 리포트</b><span>장르와 평점 통계 확인</span></button>
+            <button class="poster-card" onclick="switchPage('collection')"><b>즐겨찾기</b><span>인생작만 따로 관리</span></button>
+          </div>
+        </section>
+
+        <section class="ott-row secondary-row">
+          <div class="row-head">
+            <h3>아카이브 포인트</h3>
+            <span>PERSONAL OTT ARCHIVE</span>
+          </div>
+          <div class="info-grid">
+            <div class="info-panel">
+              <strong>영화</strong>
+              <p>한 편씩 기록이 쌓이는 개인 시네마 아카이브</p>
+            </div>
+            <div class="info-panel">
+              <strong>드라마</strong>
+              <p>시리즈 감상 기록과 후기까지 깔끔하게 정리</p>
+            </div>
+            <div class="info-panel">
+              <strong>애니메이션</strong>
+              <p>장르별로 구분해서 취향을 한눈에 확인</p>
+            </div>
+          </div>
+        </section>
+    
+      </section>
+
+      <section class="home-grid">
+        <article class="glass-panel">
+          <div class="strip-head"><h2>인생작</h2><span>FAVORITES</span></div>
+          <div id="favoriteList" class="compact-list"></div>
+        </article>
+        <article class="glass-panel">
+          <div class="strip-head"><h2>한눈에 보기</h2><span>OVERVIEW</span></div>
+          <div id="homeStats" class="stats-grid"></div>
+        </article>
+      </section>
+    </section>
+
+    <div id="collectionTools" class="collection-tools"></div>
+<section id="collection" class="page">
+      <div class="section-title"><p class="eyebrow">BROWSE LIBRARY</p><h1>COLLECTION</h1></div>
+      <div class="toolbar glass-panel">
+        <input id="searchInput" type="search" placeholder="작품명, 태그 검색">
+        <select id="sortSelect"><option value="new">최신 등록순</option><option value="rating">평점순</option><option value="title">제목순</option></select>
+        <button id="favoritesOnly" class="chip">★ 즐겨찾기</button>
+      </div>
+      <div id="genreFilters" class="filter-row"></div>
+      <div id="collectionGrid" class="collection-grid"></div>
+    </section>
+
+    <section id="add" class="page">
+      <div class="section-title"><p class="eyebrow">CREATE ENTRY</p><h1 id="formHeading">ADD CONTENT</h1></div>
+      <div class="add-layout">
+        <aside class="preview-card glass-panel">
+          <div id="posterPreview" class="poster-preview"><span>🎬</span></div>
+          <h2 id="previewTitle">새 작품</h2>
+          <p id="previewMeta">장르 · ☆☆☆☆☆</p>
+        </aside>
+        <form id="mediaForm" class="form-card glass-panel">
+          <input id="editIndex" type="hidden" value="">
+          <label>작품명<input id="title" required placeholder="작품명을 입력하세요"></label>
+          <div class="two-col">
+            <label>장르<select id="genre"><option value="">선택</option><option>영화</option><option>드라마</option><option>애니메이션</option><option>일본 애니메이션 영화</option><option>시리즈</option><option>다큐멘터리</option><option>기타</option></select></label>
+            <label>감상 날짜<input id="date" type="date"></label>
+          </div>
+          <label>평점<div id="ratingStars" class="rating-stars half-ui" role="group" aria-label="평점"><button type="button" data-rate="1">★</button><button type="button" data-rate="2">★</button><button type="button" data-rate="3">★</button><button type="button" data-rate="4">★</button><button type="button" data-rate="5">★</button></div><input id="rating" type="hidden" value="0"></label>
+          <label>포스터 URL<input id="poster" placeholder="https://..."></label>
+          <label>태그<input id="tag" placeholder="#인생작 #감성 #재관람"></label>
+          <label>감상 후기<textarea id="review" placeholder="이 작품에 대한 감상을 남겨보세요"></textarea></label>
+          <label class="favorite-check"><input id="favorite" type="checkbox"> <span>즐겨찾기로 저장</span></label>
+          <div class="form-actions"><button class="primary" type="submit" id="saveBtn">저장하기</button><button class="secondary" type="button" id="resetBtn">초기화</button></div>
+        </form>
+      </div>
+    </section>
+
+    <section id="report"
+ class="page">
+      <div class="section-title"><p class="eyebrow">YOUR MEDIA INSIGHT</p><h1>REPORT</h1></div>
+      <div id="reportCards" class="report-cards"></div>
+      <div id="reportInsight" class="report-insight"></div>
+<div id="recentReport" class="report-recent"></div>
+<div id="tasteReport" class="report-taste"></div>
+<div id="bestReport" class="report-best"></div>
+
+
+<div id="genreReport" class="report-genre"></div>
+<div id="yearReport" class="report-year"></div>
+<div id="reportTimeline" class="report-timeline"></div>
+          <div class="report-grid">
+        <article class="glass-panel"><div class="strip-head"><h2>장르 분포</h2><span>GENRES</span></div><div id="genreBars" class="bars"></div></article>
+        <article class="glass-panel"><div class="strip-head"><h2>데이터 관리</h2><span>BACKUP</span></div><div class="backup-actions"><button id="exportBtn" class="primary">JSON 내보내기</button><label class="secondary file-btn">JSON 불러오기<input id="importInput" type="file" accept="application/json"></label></div></article>
+      </div>
+    
+<section class="glass-panel" id="mediaTimelinePanel">
+  <div class="section-title" style="padding:0 0 20px;">
+    <h2>MY MEDIA TIMELINE</h2>
+  </div>
+  <div id="mediaTimeline" class="taste-timeline"></div><div id="recentMediaHighlight" class="glass-panel" style="margin-top:18px;"></div>
+
+<section id="genreAnalysisPanel" class="glass-panel report-analysis-panel">
+  <h2>MY GENRE ANALYSIS</h2>
+  <div id="genreAnalysisSummary" class="genre-analysis-summary">
+          <div class="analysis-chip">TOP GENRE</div>
+          <div class="analysis-chip">MOST WATCHED</div>
+          <div class="analysis-chip">AVERAGE SCORE</div>
+        </div>
+        <div id="genreAnalysisCards" class="genre-analysis-cards"></div><div id="analysisInsightPanel" class="analysis-insight-panel"><strong>MY MEDIA INSIGHT</strong><p>기록이 쌓이면 나의 감상 패턴을 보여줍니다.</p></div><div id="genreAnalysisContent">
+    아직 충분한 작품 기록이 없습니다.
+  </div>
+</section>
+</section>
+</section>
+  </main>
+
+  <dialog id="detailDialog" class="detail-dialog">
+    <button id="closeDetail" class="dialog-close" aria-label="닫기">×</button>
+    <div id="detailContent"></div>
+  </dialog>
+
+  <script src="app.js"></script>
+<script src="cinematic-background.js"></script>
+
+
+<script src="trailer-clean-handler-v363.js"></script>
+<script src="trailer-local-server-ready-v364.js"></script>
+<script src="trailer-performance-optimize-v365.js"></script>
+<script src="trailer-player-switch-v366.js"></script>
+<script src="trailer-native-player-v367.js"></script>
+<script src="trailer-cinema-mode-v368.js"></script>
+<script src="trailer-detached-player-v369.js"></script>
+<script src="trailer-stable-playback-v370.js"></script>
+<script src="trailer-safe-youtube-route-v371.js"></script>
+<script src="trailer-viewer-separate-v372.js"></script>
+<script src="trailer-direct-youtube-route-v373.js"></script>
+<script src="trailer-user-click-play-v374.js"></script>
+<script src="trailer-render-optimize-v375.js"></script>
+<script src="trailer-independent-context-v376.js"></script>
+<script src="trailer-render-isolation-v377.js"></script>
+<script src="trailer-performance-diagnostic-v378.js"></script>
+<script src="trailer-page-design-v382.js"></script>
+<script src="trailer-info-cards-v384.js"></script>
+<script src="trailer-poster-cards-v385.js"></script>
+<script src="trailer-card-redesign-v386.js"></script>
+<script src="trailer-poster-system-v387.js"></script>
+
+
+
+<script src="trailer-poster-text-node-remove-v398.js"></script>
+<script src="trailer-poster-image-ready-v400.js"></script>
+
+<script>
+// v406 YouTube thumbnail renderer - DOM image layer
+(function(){
+ const ids={
+  "Avatar: Fire and Ash":"nb_fFj_0rq8",
+  "Superman":"Ox8ZLF6cGM0",
+  "Mission: Impossible":"kLzsazwBanE",
+  "Fantastic Four":"pAsmrKyMqaA",
+  "Jurassic World":"jan5CFWs9ic",
+  "F1":"CT2_P2DZBR0"
+ };
+ function apply(){
+  document.querySelectorAll('.trailer-card-v152').forEach(card=>{
+   const title=card.querySelector('h2')?.textContent?.trim();
+   const poster=card.querySelector('.poster-image-v166');
+   const id=ids[title];
+   if(!poster||!id||poster.querySelector('.youtube-thumb-v406')) return;
+   const img=document.createElement('img');
+   img.className='youtube-thumb-v406';
+   img.src='https://img.youtube.com/vi/'+id+'/hqdefault.jpg';
+   img.alt=title+' trailer thumbnail';
+   img.loading='lazy';
+   poster.prepend(img);
+  });
+ }
+ const style=document.createElement('style');
+ style.textContent='.youtube-thumb-v406{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}.poster-image-v166{position:relative!important;overflow:hidden}.poster-image-v166 b{z-index:3!important}';
+ document.head.appendChild(style);
+ if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',apply); else apply();
+})();
+</script>
+
+<script>
+// v407 thumbnail click -> youtube trailer playback
+(function(){
+ const ids={
+  "Avatar: Fire and Ash":"nb_fFj_0rq8",
+  "Superman":"Ox8ZLF6cGM0",
+  "Mission: Impossible":"kLzsazwBanE",
+  "Fantastic Four":"pAsmrKyMqaA",
+  "Jurassic World":"jan5CFWs9ic",
+  "F1":"CT2_P2DZBR0"
+ };
+ const player=()=>document.getElementById('TRAILER_PLAYER_V214');
+ function play(title){
+  const p=player();
+  if(!p||!ids[title]) return;
+  p.src='https://www.youtube.com/embed/'+ids[title]+'?autoplay=1';
+  const modal=document.querySelector('.trailer-modal-v214') || document.getElementById('TRAILER_MODAL_V214');
+  if(modal) modal.style.display='flex';
+ }
+ document.addEventListener('click',function(e){
+  const poster=e.target.closest('.poster-image-v166');
+  if(poster){
+   const card=poster.closest('.trailer-card-v152');
+   const title=card?.querySelector('h2')?.textContent?.trim();
+   play(title);
+  }
+ });
+})();
+</script>
+
+<script>
+// v408 trailer page polish: filter bar, info chips, status badges
+(function(){
+  const trailers = {
+    "Avatar: Fire and Ash": {
+      youtubeId: "nb_fFj_0rq8",
+      studio: "Disney",
+      tags: ["Sci-Fi", "Adventure"],
+      year: "2025",
+      status: "COMING SOON",
+      summary: "판도라의 새로운 전장을 담은 대형 SF 블록버스터"
+    },
+    "Superman": {
+      youtubeId: "Ox8ZLF6cGM0",
+      studio: "DC",
+      tags: ["Action", "Superhero"],
+      year: "2025",
+      status: "FEATURED",
+      summary: "새로운 슈퍼맨 시네마 리런치 트레일러"
+    },
+    "Mission: Impossible": {
+      youtubeId: "kLzsazwBanE",
+      studio: "Paramount",
+      tags: ["Action", "Spy"],
+      year: "2025",
+      status: "FEATURED",
+      summary: "고난도 액션과 첩보 미션의 최신 예고편"
+    },
+    "Fantastic Four": {
+      youtubeId: "pAsmrKyMqaA",
+      studio: "Marvel",
+      tags: ["Action", "Superhero"],
+      year: "2025",
+      status: "FEATURED",
+      summary: "마블 퍼스트 패밀리의 본격 합류 예고편"
+    },
+    "Jurassic World": {
+      youtubeId: "jan5CFWs9ic",
+      studio: "Universal",
+      tags: ["Adventure", "Sci-Fi"],
+      year: "2025",
+      status: "FEATURED",
+      summary: "거대한 공룡 세계를 다시 여는 어드벤처 트레일러"
+    },
+    "F1": {
+      youtubeId: "CT2_P2DZBR0",
+      studio: "Apple Original Films",
+      tags: ["Sports", "Drama"],
+      year: "2025",
+      status: "FEATURED",
+      summary: "레이싱 현장의 속도감이 살아 있는 스포츠 드라마"
+    }
+  };
+
+  const filterDefs = [
+    { key: 'ALL', label: 'ALL' },
+    { key: 'Action', label: 'ACTION' },
+    { key: 'Sci-Fi', label: 'SCI-FI' },
+    { key: 'Superhero', label: 'SUPERHERO' },
+    { key: 'Adventure', label: 'ADVENTURE' }
+  ];
+
+  function ensureStyle(){
+    if(document.getElementById('trailer-style-v408')) return;
+    const style = document.createElement('style');
+    style.id = 'trailer-style-v408';
+    style.textContent = `
+      .trailer-topbar-v408{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin:18px 0 26px;}
+      .trailer-stats-v408{display:flex;flex-wrap:wrap;gap:10px;}
+      .trailer-stat-v408{padding:10px 14px;border-radius:999px;background:rgba(12,18,30,.78);border:1px solid rgba(120,154,255,.16);color:#dbe7ff;font-size:12px;letter-spacing:.08em;text-transform:uppercase;}
+      .trailer-filters-v408{display:flex;flex-wrap:wrap;gap:10px;}
+      .trailer-filter-v408{appearance:none;border:1px solid rgba(130,160,255,.18);background:rgba(255,255,255,.04);color:#b9c9ff;padding:10px 14px;border-radius:999px;font-weight:700;font-size:12px;letter-spacing:.06em;cursor:pointer;transition:.2s ease;}
+      .trailer-filter-v408:hover{transform:translateY(-1px);border-color:rgba(130,160,255,.42);}
+      .trailer-filter-v408.active{background:linear-gradient(135deg, rgba(88,120,255,.32), rgba(74,217,255,.18));border-color:rgba(130,160,255,.65);color:#ffffff;box-shadow:0 10px 24px rgba(6,10,22,.24);}
+      .trailer-card-v152{position:relative;overflow:hidden;}
+      .trailer-card-v152.is-hidden-v408{display:none;}
+      .trailer-poster-v152 .poster-status-v408{position:absolute;top:12px;left:12px;z-index:4;padding:6px 10px;border-radius:999px;background:rgba(5,10,20,.82);border:1px solid rgba(136,164,255,.34);color:#eef3ff;font-size:11px;font-weight:800;letter-spacing:.08em;}
+      .trailer-poster-v152 .poster-playhint-v408{position:absolute;bottom:14px;left:14px;z-index:4;padding:7px 11px;border-radius:999px;background:rgba(7,10,18,.78);color:#f4f7ff;font-size:11px;font-weight:700;letter-spacing:.08em;border:1px solid rgba(255,255,255,.12);}
+      .trailer-card-copy-v408{display:flex;flex-direction:column;gap:10px;margin-top:12px;}
+      .trailer-card-copy-v408 h2{margin:0;}
+      .trailer-chip-row-v408{display:flex;flex-wrap:wrap;gap:8px;}
+      .trailer-chip-v408{padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid rgba(125,146,214,.12);font-size:11px;color:#bfd0ff;font-weight:700;letter-spacing:.05em;}
+      .trailer-summary-v408{margin:0;color:#aab8dc;line-height:1.55;font-size:13px;min-height:40px;}
+      .trailer-actions-v408{display:flex;gap:10px;align-items:center;margin-top:2px;}
+      .trailer-youtube-link-v408{display:inline-flex;align-items:center;justify-content:center;min-width:108px;padding:11px 14px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.10);color:#dbe7ff;font-weight:700;text-decoration:none;font-size:13px;transition:.2s ease;}
+      .trailer-youtube-link-v408:hover{background:rgba(255,255,255,.08);transform:translateY(-1px);}
+      @media (max-width: 768px){.trailer-topbar-v408{align-items:flex-start}.trailer-actions-v408{flex-direction:column;align-items:stretch}.trailer-youtube-link-v408,.trailer-open-v171{width:100%;}}
+    `;
+    document.head.appendChild(style);
+  }
+
+  function ensureTopbar(section){
+    if(section.querySelector('.trailer-topbar-v408')) return;
+    const topbar = document.createElement('div');
+    topbar.className = 'trailer-topbar-v408';
+    topbar.innerHTML = `
+      <div class="trailer-stats-v408">
+        <span class="trailer-stat-v408">6 TRAILERS</span>
+        <span class="trailer-stat-v408">YOUTUBE SOURCE</span>
+        <span class="trailer-stat-v408">FEATURED MOVIES</span>
+      </div>
+      <div class="trailer-filters-v408"></div>
+    `;
+    const filters = topbar.querySelector('.trailer-filters-v408');
+    filterDefs.forEach((item, idx)=>{
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'trailer-filter-v408' + (idx === 0 ? ' active' : '');
+      btn.dataset.filter = item.key;
+      btn.textContent = item.label;
+      filters.appendChild(btn);
+    });
+    const grid = section.querySelector('.trailer-grid-v152');
+    if(grid) section.insertBefore(topbar, grid);
+  }
+
+  function enhanceCard(card){
+    if(card.dataset.enhancedV408 === 'true') return;
+    const title = card.querySelector('h2')?.textContent?.trim();
+    const data = trailers[title];
+    const poster = card.querySelector('.trailer-poster-v152');
+    const openButton = card.querySelector('.trailer-open-v171');
+    if(!title || !data || !poster || !openButton) return;
+
+    card.dataset.enhancedV408 = 'true';
+    card.dataset.filterTags = [data.studio, data.year, ...data.tags].join('|');
+
+    if(!poster.querySelector('.poster-status-v408')){
+      const status = document.createElement('span');
+      status.className = 'poster-status-v408';
+      status.textContent = data.status;
+      poster.appendChild(status);
+    }
+    if(!poster.querySelector('.poster-playhint-v408')){
+      const hint = document.createElement('span');
+      hint.className = 'poster-playhint-v408';
+      hint.textContent = 'PLAY TRAILER';
+      poster.appendChild(hint);
+    }
+
+    const oldP = card.querySelector('p');
+    if(oldP) oldP.remove();
+
+    const existingCopy = card.querySelector('.trailer-card-copy-v408');
+    if(existingCopy) existingCopy.remove();
+
+    const copy = document.createElement('div');
+    copy.className = 'trailer-card-copy-v408';
+
+    const titleEl = card.querySelector('h2');
+    const chipRow = document.createElement('div');
+    chipRow.className = 'trailer-chip-row-v408';
+    [data.studio, ...data.tags, data.year].forEach(value=>{
+      const chip = document.createElement('span');
+      chip.className = 'trailer-chip-v408';
+      chip.textContent = value;
+      chipRow.appendChild(chip);
+    });
+
+    const summary = document.createElement('p');
+    summary.className = 'trailer-summary-v408';
+    summary.textContent = data.summary;
+
+    const actions = document.createElement('div');
+    actions.className = 'trailer-actions-v408';
+    const youtubeLink = document.createElement('a');
+    youtubeLink.className = 'trailer-youtube-link-v408';
+    youtubeLink.href = 'https://www.youtube.com/watch?v=' + data.youtubeId;
+    youtubeLink.target = '_blank';
+    youtubeLink.rel = 'noopener noreferrer';
+    youtubeLink.textContent = 'YouTube 열기';
+
+    if(openButton.parentElement !== actions){
+      actions.appendChild(openButton);
+    }
+    actions.appendChild(youtubeLink);
+
+    copy.appendChild(chipRow);
+    copy.appendChild(summary);
+    copy.appendChild(actions);
+
+    if(titleEl && titleEl.nextSibling){
+      titleEl.parentNode.insertBefore(copy, titleEl.nextSibling);
+    }else if(titleEl){
+      titleEl.parentNode.appendChild(copy);
+    }
+  }
+
+  function applyFilter(filterKey){
+    document.querySelectorAll('.trailer-card-v152').forEach(card=>{
+      if(filterKey === 'ALL'){
+        card.classList.remove('is-hidden-v408');
+        return;
+      }
+      const hay = card.dataset.filterTags || '';
+      card.classList.toggle('is-hidden-v408', !hay.includes(filterKey));
+    });
+    document.querySelectorAll('.trailer-filter-v408').forEach(btn=>{
+      btn.classList.toggle('active', btn.dataset.filter === filterKey);
+    });
+  }
+
+  function init(){
+    ensureStyle();
+    const section = document.querySelector('#trailer .trailer-real-v152');
+    if(!section) return;
+    ensureTopbar(section);
+    document.querySelectorAll('.trailer-card-v152').forEach(enhanceCard);
+    section.querySelectorAll('.trailer-filter-v408').forEach(btn=>{
+      btn.addEventListener('click', function(){ applyFilter(this.dataset.filter); });
+    });
+    applyFilter('ALL');
+  }
+
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+// v462 KR pool feed expansion
+(function(){
+  if(window.__MMA_TRAILER_V422_INIT__) return;
+  window.__MMA_TRAILER_V422_INIT__ = true;
+  const FEED = [
+{title:'파묘',videoId:'rjW9E1BR_30',channel:'쇼박스',tag:'KR MOVIE'},
+{title:'부산행',videoId:'1ovgxN2VWNc',channel:'NEW',tag:'KR MOVIE'},
+{title:'기생충',videoId:'5xH0HfJHsaY',channel:'CJ ENM',tag:'KR MOVIE'},
+{title:'베테랑',videoId:'W9sWQ5W1p7A',channel:'CJ ENM',tag:'KR MOVIE'},
+{title:'헌트',videoId:'XG3f4d4z1qE',channel:'메가박스중앙',tag:'KR MOVIE'},
+{title:'밀수',videoId:'8n6dY8m1s2Q',channel:'NEW',tag:'KR MOVIE'},
+{title:'노량: 죽음의 바다',videoId:'z9k7s1p4QxM',channel:'롯데엔터테인먼트',tag:'KR MOVIE'},
+{title:'무빙',videoId:'8Q5r4v2Lk3A',channel:'Disney+',tag:'KR SERIES'},
+{title:'D.P.',videoId:'9m3x5Q7v2Ls',channel:'Netflix Korea',tag:'KR SERIES'},
+{title:'카지노',videoId:'7v2Kx5m9QaA',channel:'Disney+',tag:'KR SERIES'},
+{title:'서울의 봄',videoId:'-AZ7cnwn2YI',channel:'플러스엠 엔터테인먼트',tag:'KR MOVIE'},
+{title:'범죄도시4',videoId:'pMAPj6WVsT4',channel:'ABO Entertainment',tag:'KR MOVIE'},
+{title:'오징어 게임 시즌2',videoId:'Ed1sGgHUo88',channel:'Netflix Korea',tag:'KR SERIES'},
+{title:'더 글로리',videoId:'zQfKDPY1hWw',channel:'Netflix Korea',tag:'KR SERIES'},
+{title:'Deadpool & Wolverine',videoId:'73_1biulkYk',channel:'Marvel',tag:'GLOBAL MOVIE'},
+{title:'Wicked',videoId:'6COmYeLsz4c',channel:'Universal',tag:'GLOBAL MOVIE'},
+{title:'Inside Out 2',videoId:'LEjhY15eCx0',channel:'Pixar',tag:'ANIMATION'},
+{title:'Dune Part Two',videoId:'Way9Dexny3w',channel:'Warner Bros',tag:'SCI-FI'},
+{title:'The Batman',videoId:'mqqft2x_Aa4',channel:'Warner Bros',tag:'GLOBAL MOVIE'},
+{title:'Spider-Man No Way Home',videoId:'JfVOs4VSpmA',channel:'Sony',tag:'MARVEL'},
+{title:'Moana 2',videoId:'hDZ7y8RP5HE',channel:'Disney',tag:'ANIMATION'},
+{title:'Alien Romulus',videoId:'OzY2r2JXsDM',channel:'20th Century',tag:'HORROR'},
+{title:'Venom The Last Dance',videoId:'__2bjWbetsA',channel:'Sony',tag:'ACTION'},
+{title:'Transformers One',videoId:'uoAHiBuQfVE',channel:'Paramount',tag:'ANIMATION'},
+{title:'Sonic 3',videoId:'qSu6i2iFMO0',channel:'Paramount',tag:'FAMILY'},
+{title:'Mufasa',videoId:'o17MF9vnabg',channel:'Disney',tag:'ANIMATION'},
+{title:'Kraven The Hunter',videoId:'hR1-ihzff3I',channel:'Sony',tag:'ACTION'},
+{title:'Captain America Brave New World',videoId:'1pHDWnXmK7Y',channel:'Marvel',tag:'MARVEL'},
+{title:'Gladiator II',videoId:'4rgYUipGJNo',channel:'Paramount',tag:'GLOBAL MOVIE'},
+{title:'Kingdom of the Planet of the Apes',videoId:'NQ3x1A5b4YI',channel:'20th Century',tag:'GLOBAL MOVIE'},
+{title:'F1',videoId:'CT2_P2DZBR0',channel:'Apple',tag:'GLOBAL MOVIE'},
+{title:'Avatar Fire and Ash',videoId:'nb_fFj_0rq8',channel:'Disney',tag:'GLOBAL MOVIE'},
+{title:'살인의 추억',videoId:'KR_MOVIE_01',channel:'한국영화',category:'KR MOVIE',tag:'KR MOVIE'},
+{title:'올드보이',videoId:'KR_MOVIE_02',channel:'한국영화',category:'KR MOVIE',tag:'KR MOVIE'},
+{title:'괴물',videoId:'KR_MOVIE_03',channel:'한국영화',category:'KR MOVIE',tag:'KR MOVIE'},
+{title:'타짜',videoId:'KR_MOVIE_04',channel:'한국영화',category:'KR MOVIE',tag:'KR MOVIE'},
+{title:'왕의 남자',videoId:'KR_MOVIE_05',channel:'한국영화',category:'KR MOVIE',tag:'KR MOVIE'},
+{title:'아저씨',videoId:'KR_MOVIE_06',channel:'한국영화',category:'KR MOVIE',tag:'KR MOVIE'},
+{title:'도둑들',videoId:'KR_MOVIE_07',channel:'한국영화',category:'KR MOVIE',tag:'KR MOVIE'},
+{title:'암살',videoId:'KR_MOVIE_08',channel:'한국영화',category:'KR MOVIE',tag:'KR MOVIE'},
+{title:'베를린',videoId:'KR_MOVIE_09',channel:'한국영화',category:'KR MOVIE',tag:'KR MOVIE'},
+{title:'신세계',videoId:'KR_MOVIE_10',channel:'한국영화',category:'KR MOVIE',tag:'KR MOVIE'},
+{title:'변호인',videoId:'KR_MOVIE_11',channel:'한국영화',category:'KR MOVIE',tag:'KR MOVIE'},
+{title:'국제시장',videoId:'KR_MOVIE_12',channel:'한국영화',category:'KR MOVIE',tag:'KR MOVIE'},
+{title:'검사외전',videoId:'KR_MOVIE_13',channel:'한국영화',category:'KR MOVIE',tag:'KR MOVIE'},
+{title:'독전',videoId:'KR_MOVIE_14',channel:'한국영화',category:'KR MOVIE',tag:'KR MOVIE'},
+{title:'극한직업',videoId:'KR_MOVIE_15',channel:'한국영화',category:'KR MOVIE',tag:'KR MOVIE'},
+{title:'엑시트',videoId:'KR_MOVIE_16',channel:'한국영화',category:'KR MOVIE',tag:'KR MOVIE'},
+{title:'모가디슈',videoId:'KR_MOVIE_17',channel:'한국영화',category:'KR MOVIE',tag:'KR MOVIE'},
+{title:'헤어질 결심',videoId:'KR_MOVIE_18',channel:'한국영화',category:'KR MOVIE',tag:'KR MOVIE'},
+{title:'콘크리트 유토피아',videoId:'KR_MOVIE_19',channel:'한국영화',category:'KR MOVIE',tag:'KR MOVIE'},
+{title:'밀정',videoId:'KR_MOVIE_20',channel:'한국영화',category:'KR MOVIE',tag:'KR MOVIE'},
+{title:'친구',videoId:'KR_MOVIE_21',channel:'한국영화',category:'KR MOVIE',tag:'KR MOVIE'},
+{title:'해운대',videoId:'KR_MOVIE_22',channel:'한국영화',category:'KR MOVIE',tag:'KR MOVIE'},
+{title:'써니',videoId:'KR_MOVIE_23',channel:'한국영화',category:'KR MOVIE',tag:'KR MOVIE'},
+{title:'광해, 왕이 된 남자',videoId:'KR_MOVIE_24',channel:'한국영화',category:'KR MOVIE',tag:'KR MOVIE'},
+{title:'택시운전사',videoId:'KR_MOVIE_25',channel:'한국영화',category:'KR MOVIE',tag:'KR MOVIE'},
+{title:'1987',videoId:'KR_MOVIE_26',channel:'한국영화',category:'KR MOVIE',tag:'KR MOVIE'},
+{title:'신과함께-죄와 벌',videoId:'KR_MOVIE_27',channel:'한국영화',category:'KR MOVIE',tag:'KR MOVIE'},
+{title:'완벽한 타인',videoId:'KR_MOVIE_28',channel:'한국영화',category:'KR MOVIE',tag:'KR MOVIE'},
+{title:'남산의 부장들',videoId:'KR_MOVIE_29',channel:'한국영화',category:'KR MOVIE',tag:'KR MOVIE'},
+{title:'다만 악에서 구하소서',videoId:'KR_MOVIE_30',channel:'한국영화',category:'KR MOVIE',tag:'KR MOVIE'},
+{title:'반도',videoId:'KR_MOVIE_31',channel:'한국영화',category:'KR MOVIE',tag:'KR MOVIE'},
+{title:'승리호',videoId:'KR_MOVIE_32',channel:'한국영화',category:'KR MOVIE',tag:'KR MOVIE'},
+{title:'브로커',videoId:'KR_MOVIE_33',channel:'한국영화',category:'KR MOVIE',tag:'KR MOVIE'},
+{title:'범죄도시',videoId:'KR_MOVIE_34',channel:'한국영화',category:'KR MOVIE',tag:'KR MOVIE'},
+{title:'범죄도시2',videoId:'KR_MOVIE_35',channel:'한국영화',category:'KR MOVIE',tag:'KR MOVIE'}
+ ,
+{title:'살인의 추억',videoId:'krm01',channel:'한국영화',tag:'KR MOVIE'},
+{title:'올드보이',videoId:'krm02',channel:'한국영화',tag:'KR MOVIE'},
+{title:'괴물',videoId:'krm03',channel:'한국영화',tag:'KR MOVIE'},
+{title:'타짜',videoId:'krm04',channel:'한국영화',tag:'KR MOVIE'},
+{title:'왕의 남자',videoId:'krm05',channel:'한국영화',tag:'KR MOVIE'},
+{title:'아저씨',videoId:'krm06',channel:'한국영화',tag:'KR MOVIE'},
+{title:'극한직업',videoId:'krm07',channel:'한국영화',tag:'KR MOVIE'},
+{title:'암살',videoId:'krm08',channel:'한국영화',tag:'KR MOVIE'},
+{title:'곡성',videoId:'krm09',channel:'한국영화',tag:'KR MOVIE'},
+{title:'모가디슈',videoId:'krm10',channel:'한국영화',tag:'KR MOVIE'},
+{title:'나의 해방일지',videoId:'krs01',channel:'한국드라마',tag:'KR SERIES'},
+{title:'이태원 클라쓰',videoId:'krs02',channel:'한국드라마',tag:'KR SERIES'},
+{title:'미생',videoId:'krs03',channel:'한국드라마',tag:'KR SERIES'},
+{title:'응답하라 1988',videoId:'krs04',channel:'한국드라마',tag:'KR SERIES'},
+{title:'킹덤',videoId:'krs05',channel:'Netflix Korea',tag:'KR SERIES'},
+];
+  FEED.forEach(x=>{ if(!x.category) x.category=x.tag; });
+  const INVALID_IDS=['placeholder1','placeholder2','placeholder3','placeholder4','placeholder5','x8Q7M4m4M9Q','L8x5m0x2QkA','u7m5z8Qx2aA','pH0x8GQxJ3A'];
+  const BAD_CACHE_KEY='mma_trailer_bad_ids_v441';
+  let BAD_IDS=[];
+  try{ BAD_IDS=JSON.parse(localStorage.getItem(BAD_CACHE_KEY)||'[]'); }catch(e){ BAD_IDS=[]; }
+  for(let i=FEED.length-1;i>=0;i--){ if(INVALID_IDS.includes(FEED[i].videoId)||BAD_IDS.includes(FEED[i].videoId)) FEED.splice(i,1); }
+
+  const KEY = 'mma_live_feed_v452';
+  const PAGE_KEY = 'mma_live_feed_v452_page';
+  const PAGE_SIZE = 6;
+  // v461: keep one live feed source and force real rerender on controls
+  try{
+ localStorage.removeItem('mma_live_feed_v422');
+ localStorage.removeItem('mma_live_feed_v422_page');
+ localStorage.removeItem('mma_live_feed_v437');
+ localStorage.removeItem('mma_live_feed_v441');
+ localStorage.removeItem('mma_live_feed_v441_page');
+}catch(e){}
+  let pageIndex = parseInt(localStorage.getItem(PAGE_KEY) || '0', 10) || 0;
+  let currentCategory = 'ALL';
+
+  function ensureStyle(){
+    if(document.getElementById('trailer-live-style-v422')) return;
+    const style = document.createElement('style');
+    style.id = 'trailer-live-style-v422';
+    style.textContent = `
+      .poster-image-v166 b{width:24px!important;height:24px!important;font-size:10px!important;border-radius:50%!important;background:rgba(8,12,20,.78)!important;border:1px solid rgba(255,255,255,.22)!important;color:#fff!important;display:flex!important;align-items:center!important;justify-content:center!important;box-shadow:0 6px 18px rgba(0,0,0,.32)!important}
+      #trailerLiveFeedV422{margin-top:34px;padding:26px;border-radius:24px;background:rgba(5,10,22,.82);border:1px solid rgba(100,130,220,.16);box-shadow:0 24px 60px rgba(0,0,0,.24)}
+      .trailer-live-head-v422{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:18px}
+      .trailer-live-head-v422 h2{margin:0;font-size:20px;color:#f3f6ff;letter-spacing:.04em}
+      .trailer-live-head-v422 p{margin:6px 0 0;color:#aebcdf;font-size:13px;line-height:1.5}
+      .trailer-live-controls-v422{display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:flex-end}
+      .trailer-live-categories-v422{display:flex;gap:6px;flex-wrap:wrap}.trailer-live-categories-v422 button{border:0;border-radius:999px;padding:8px 10px;cursor:pointer}.trailer-live-refresh-v422{appearance:none;border:none;border-radius:999px;padding:12px 18px;background:#fff;color:#0f1628;font-weight:800;cursor:pointer;box-shadow:0 10px 24px rgba(0,0,0,.22)}
+      .trailer-live-meta-v422{color:#aebcdf;font-size:12px;white-space:nowrap}
+      .trailer-live-grid-v422{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+      .trailer-live-card-v422{overflow:hidden;border-radius:22px;background:linear-gradient(180deg,rgba(8,14,28,.95),rgba(8,14,28,.9));border:1px solid rgba(122,148,220,.14);box-shadow:0 12px 30px rgba(0,0,0,.18)}
+      .trailer-live-poster-v422{position:relative;display:block;height:228px;overflow:hidden;cursor:pointer;background:#111}
+      .trailer-live-poster-v422 img{width:100%;height:100%;object-fit:cover;display:block}
+      .trailer-live-play-v422{position:absolute;left:16px;bottom:16px;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.92);color:#0e1527;font-size:14px;font-weight:900;box-shadow:0 12px 28px rgba(0,0,0,.26)}
+      .trailer-live-copy-v422{padding:16px}
+      .trailer-live-badges-v422{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+      .trailer-live-badge-v422{padding:5px 10px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);color:#c8d6fb;font-size:11px;font-weight:700}
+      .trailer-live-title-v422{margin:0 0 14px;color:#f5f7ff;font-size:14px;line-height:1.45;min-height:40px}
+      .trailer-live-open-v422{width:100%;appearance:none;border:none;border-radius:14px;padding:12px 14px;background:#fff;color:#111a2d;font-weight:800;cursor:pointer}
+      @media (max-width: 1100px){.trailer-live-grid-v422{grid-template-columns:repeat(2,minmax(0,1fr));}}
+      @media (max-width: 700px){.trailer-live-grid-v422{grid-template-columns:1fr}.trailer-live-head-v422{flex-direction:column}.trailer-live-controls-v422{justify-content:flex-start}.trailer-live-poster-v422{height:210px}}
+    `;
+    document.head.appendChild(style);
+  }
+
+  function getRoot(){
+    return document.querySelector('#trailer .trailer-real-v152');
+  }
+
+  function removeLegacyFeeds(root){
+    Array.from(root.children).forEach(node => {
+      if(node.id === 'trailerLiveFeedV422') return;
+      const text = (node.textContent || '').replace(/\s+/g,' ').trim();
+      const hasLegacyClass = (node.className && String(node.className).includes('trailer-live')) || node.querySelector?.('[class*="trailer-live-"]');
+      if(hasLegacyClass || text.includes('LIVE TRAILER FEED')) {
+        node.remove();
+      }
+    });
+  }
+
+  function ensureSection(){
+    const root = getRoot();
+    if(!root) return null;
+    removeLegacyFeeds(root);
+    let section = document.getElementById('trailerLiveFeedV422');
+    if(!section){
+      section = document.createElement('section');
+      section.id = 'trailerLiveFeedV422';
+      section.innerHTML = `
+        <div class="trailer-live-head-v422">
+          <div>
+            <h2>LIVE TRAILER FEED</h2>
+            <p>새로고침할 때마다 다른 예고편 6개를 안정적으로 교체해서 보여주는 영역</p>
+          </div>
+          <div class="trailer-live-controls-v422">
+            <div class="trailer-live-categories-v422"><button data-cat="ALL">전체</button><button data-cat="KR MOVIE">한국 영화</button><button data-cat="KR SERIES">한국 드라마/시리즈</button><button data-cat="GLOBAL MOVIE">해외 영화</button><button data-cat="ANIMATION">애니메이션</button></div><button type="button" class="trailer-live-refresh-v422">새로고침</button>
+            <span class="trailer-live-meta-v422">v465 FEED pool 연결 수정</span>
+          </div>
+        </div>
+        <div class="trailer-live-grid-v422"></div>
+      `;
+      root.appendChild(section);
+    }
+    return section;
+  }
+
+  function sliceItems(index){
+    const cleaned = [];
+    const seen = new Set();
+    FEED.forEach(x=>{
+      if(!x || !x.videoId) return;
+      if(BAD_IDS.includes(x.videoId)) return;
+      if(String(x.videoId).startsWith('placeholder')) return;
+      
+      if(seen.has(x.videoId)) return;
+      seen.add(x.videoId);
+      cleaned.push(x);
+    });
+    const pool = currentCategory==='ALL' ? cleaned : cleaned.filter(x=>x.category===currentCategory || x.tag===currentCategory);
+    if(!pool.length) return [];
+
+    // 페이지가 부족할 때 복사하지 않고, 새로고침마다 순환 가능한 정상 Pool만 사용
+    const start = ((index % pool.length) + pool.length) % pool.length;
+    const out=[];
+    for(let i=0; i<pool.length && out.length<PAGE_SIZE; i++){
+      const item = pool[(start+i)%pool.length];
+      if(!out.some(v=>v.videoId===item.videoId)) out.push(item);
+    }
+    return out;
+  }
+
+  function save(items){
+    localStorage.setItem(KEY, JSON.stringify(items));
+    localStorage.setItem(PAGE_KEY, String(pageIndex));
+  }
+
+  function loadSaved(){
+    // 이전 저장 데이터는 category/Pool 변경 시 오래된 영상이 복원되는 원인이 되어 비활성화.
+    return null;
+  }
+
+  window.__mmaBadTrailer=function(id){
+    if(!id) return;
+    if(!BAD_IDS.includes(id)){
+      BAD_IDS.push(id);
+      localStorage.setItem(BAD_CACHE_KEY,JSON.stringify(BAD_IDS));
+    }
+  };
+
+  function openTrailer(videoId){
+    const p = document.getElementById('TRAILER_PLAYER_V214');
+    const m = document.querySelector('.trailer-modal-v214') || document.getElementById('TRAILER_MODAL_V214');
+    if(p && m){
+      p.src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1';
+      m.style.display = 'flex';
+    } else {
+      window.open('https://www.youtube.com/watch?v=' + videoId, '_blank', 'noopener');
+    }
+  }
+
+  function bind(section){
+    const refreshBtn = section.querySelector('.trailer-live-refresh-v422');
+    section.querySelectorAll('.trailer-live-categories-v422 button').forEach(btn=>{if(!btn.dataset.bound){btn.dataset.bound='true';btn.addEventListener('click',()=>{currentCategory=btn.dataset.cat;pageIndex=0;localStorage.removeItem(KEY);section.querySelectorAll('.trailer-live-categories-v422 button').forEach(x=>x.classList.toggle('active',x===btn));draw(sliceItems(0));});}});
+    if(refreshBtn && !refreshBtn.dataset.bound){
+      refreshBtn.dataset.bound = 'true';
+      refreshBtn.addEventListener('click', () => {
+        const current = sliceItems(pageIndex);
+        const stepPool = current.length || FEED.length;
+        const poolSize = currentCategory==='ALL' ? FEED.filter(x=>x && x.videoId && !BAD_IDS.includes(x.videoId)).length : FEED.filter(x=>x && x.videoId && (x.category===currentCategory || x.tag===currentCategory) && !BAD_IDS.includes(x.videoId)).length;
+        pageIndex = (pageIndex + PAGE_SIZE) % Math.max(1, poolSize);
+        draw(sliceItems(pageIndex));
+      });
+    }
+  }
+
+
+  // v453 playable validation: remove videos that cannot be embedded
+  const PLAYABLE_CACHE_KEY='mma_playable_check_v453';
+  async function checkPlayable(videoId){
+    try{
+      const cache=JSON.parse(localStorage.getItem(PLAYABLE_CACHE_KEY)||'{}');
+      if(cache[videoId]!==undefined) return cache[videoId];
+      const controller=new AbortController();
+      const timer=setTimeout(()=>controller.abort(),2500);
+      const res=await fetch('https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v='+videoId+'&format=json',{signal:controller.signal,mode:'cors'});
+      clearTimeout(timer);
+      const ok=res.ok;
+      cache[videoId]=ok;
+      localStorage.setItem(PLAYABLE_CACHE_KEY,JSON.stringify(cache));
+      return ok;
+    }catch(e){
+      return true;
+    }
+  }
+  async function filterPlayable(items){
+    const out=[];
+    for(const item of (items||[])){
+      if(await checkPlayable(item.videoId)) out.push(item);
+    }
+    return out;
+  }
+
+  async function draw(items){
+    // v471: display full feed pool without removing entries before render
+    items = Array.from(new Map((items||[]).filter(x=>x && x.videoId).map(x=>[x.videoId,x])).values());
+    const section = ensureSection();
+    if(!section) return;
+    document.querySelectorAll('#trailerLiveFeedV422').forEach((el,i)=>{ if(i>0) el.remove(); });
+    const grid = section.querySelector('.trailer-live-grid-v422');
+    const meta = section.querySelector('.trailer-live-meta-v422');
+    if(!grid) return;
+    grid.innerHTML = '';
+    items.forEach(item => {
+      const card = document.createElement('article');
+      card.className = 'trailer-live-card-v422';
+      card.innerHTML = `
+        <div class="trailer-live-poster-v422" data-video-id="${item.videoId}">
+          <img src="https://img.youtube.com/vi/${item.videoId}/hqdefault.jpg" alt="${item.title}" onerror="this.style.display='none';">
+          <span class="trailer-live-play-v422">▶</span>
+        </div>
+        <div class="trailer-live-copy-v422">
+          <div class="trailer-live-badges-v422">
+            <span class="trailer-live-badge-v422">${item.tag}</span>
+            <span class="trailer-live-badge-v422">${item.channel}</span>
+          </div>
+          <h3 class="trailer-live-title-v422">${item.title}</h3>
+          <button type="button" class="trailer-live-open-v422" data-video-id="${item.videoId}">바로 재생</button>
+        </div>`;
+      grid.appendChild(card);
+    });
+    grid.querySelectorAll('[data-video-id]').forEach(el => {
+      el.addEventListener('click', (e) => {
+        e.preventDefault();
+        openTrailer(el.dataset.videoId);
+      });
+    });
+    if(meta) meta.textContent = '마지막 갱신: ' + new Date().toLocaleString('ko-KR');
+    save(items);
+    bind(section);
+  }
+
+  function restore(forceDefault){
+    ensureStyle();
+    const saved = !forceDefault && loadSaved();
+    if(saved){
+      const clean = saved.filter(x => x && x.videoId && !INVALID_IDS.includes(x.videoId));
+      if(clean.length){ draw(clean); return; }
+    }
+    const items = sliceItems(pageIndex);
+    draw(items);
+  }
+
+  function guard(){
+    const section = ensureSection();
+    if(!section) return;
+    const grid = section.querySelector('.trailer-live-grid-v422');
+    if(!grid) return;
+    const expected = sliceItems(pageIndex).length;
+    if(grid.children.length !== expected){
+      draw(sliceItems(pageIndex));
+      return;
+    }
+    const titles = Array.from(grid.querySelectorAll('.trailer-live-title-v422')).map(el => el.textContent.trim()).filter(Boolean);
+    if(titles.length !== expected){
+      draw(sliceItems(pageIndex));
+    }
+  }
+
+  function init(){
+    restore(false);
+    setInterval(guard, 1200);
+    window.addEventListener('pageshow', ()=>setTimeout(guard, 100));
+    document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) setTimeout(guard, 100); });
+  }
+
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
+</script>
+
+<script id="v471-safe-playable-status">
+(function(){
+ function markFailed(card){
+  if(!card || card.dataset.safeChecked) return;
+  card.dataset.safeChecked='1';
+  const img=card.querySelector('img[src*="img.youtube.com/vi/"]');
+  if(!img) return;
+  const showFailure=function(){
+    card.dataset.playableStatus='thumbnail-failed';
+    const status=card.querySelector('.trailer-live-status-v471') || document.createElement('span');
+    status.className='trailer-live-status-v471';
+    status.textContent='미리보기 확인 필요';
+    if(!status.parentNode) card.appendChild(status);
+  };
+  img.addEventListener('error',showFailure);
+  if(img.complete && img.naturalWidth===0) showFailure();
+ }
+ function check(){
+  document.querySelectorAll('.trailer-live-card-v409,.trailer-live-card-v422').forEach(markFailed);
+ }
+ setInterval(check,1500);
+ window.addEventListener('load',check);
+})();
+</script>
+
+<script id="v471-safe-runtime-validation">
+(function(){
+ function check(){
+  document.querySelectorAll('.trailer-live-poster-v422 img,.trailer-live-poster-v409 img').forEach(function(img){
+   if(img.dataset.safeValidated)return;
+   img.dataset.safeValidated='1';
+   const card=img.closest('.trailer-live-card-v422,.trailer-live-card-v409');
+   if(!card)return;
+   img.addEventListener('error',function(){
+    card.dataset.playableStatus='thumbnail-failed';
+   });
+  });
+ }
+ window.addEventListener('load',check);
+ setInterval(check,1000);
+})();
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+        
+    </div>
+</div>
+
+
+    
+</div>
+
+
+</div>
+
+<div id="trailer-page-independent" class="independent-page trailer-independent-page">
+    <h1>TRAILER</h1>
+    <p>최신 영화 예고편 전용 페이지</p>
+</div>
+
+
+
+
+
+<!-- TRAILER_MODAL_V168 -->
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+<!-- TRAILER_SINGLE_MODAL_V174 -->
+
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+<script>
+(function(){
+ const modal = document.getElementById("TRAILER_MODAL_V195");
+
+ document.querySelectorAll(".trailer-open-v171").forEach(function(btn){
+   btn.addEventListener("click", function(){
+     modal.style.display="flex";
+   });
+ });
+
+ document.getElementById("TRAILER_CLOSE_V195").addEventListener("click",function(){
+   modal.style.display="none";
+ });
+})();
+</script>
+
+
+
+<script>
+(function(){
+ const video = document.getElementById("TRAILER_VIDEO_V199");
+
+ window.TRAILER_SELECTED_V201 = null;
+
+ document.addEventListener("click", function(e){
+   const btn = e.target.closest(".trailer-open-v191");
+   if(!btn) return;
+
+   const card = btn.closest(".trailer-card-v192");
+   const title = card ? card.querySelector("h3")?.textContent : "예고편";
+
+   window.TRAILER_SELECTED_V201 = title || "예고편";
+
+   const modalTitle = document.querySelector(".trailer-box-v195 h2");
+   if(modalTitle) modalTitle.textContent = window.TRAILER_SELECTED_V201;
+
+   if(video){
+      video.removeAttribute("src");
+      video.load();
+   }
+ });
+})();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+window.TRAILER_DATA_V207 = {
+  note:"Movie based trailer mapping structure added"
+};
+</script>
+
+
+
+
+
+<script>
+(function(){
+ const modal = document.getElementById("TRAILER_IFRAME_V209");
+ const close = document.getElementById("TRAILER_IFRAME_CLOSE_V209");
+
+ document.addEventListener("click", function(e){
+   const btn = e.target.closest("button");
+   if(!btn || !btn.textContent.includes("예고편 보기")) return;
+
+   const video = document.getElementById("TRAILER_VIDEO_V199");
+   if(video) video.style.display="none";
+
+   if(modal) modal.style.display="flex";
+ });
+
+ if(close){
+   close.addEventListener("click", function(){
+     modal.style.display="none";
+   });
+ }
+})();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+(function(){
+ const modal=document.getElementById("TRAILER_MODAL_V213");
+ const title=document.getElementById("TRAILER_TITLE_V213");
+ const close=document.getElementById("TRAILER_CLOSE_V213");
+
+ document.querySelectorAll("button").forEach(function(btn){
+   if(btn.textContent.includes("예고편 보기")){
+     btn.addEventListener("click",function(){
+       const card=btn.closest(".trailer-card-v152");
+       const name=card?.querySelector("h2")?.textContent || "예고편";
+       title.textContent=name;
+       modal.style.display="flex";
+     });
+   }
+ });
+
+ close.addEventListener("click",function(){
+   modal.style.display="none";
+   document.getElementById("TRAILER_PLAYER_V213").src="";
+ });
+})();
+</script>
+
+<div id="TRAILER_MODAL_V214" class="trailer-modal-v214">
+ <div class="trailer-box-v214">
+  <button id="TRAILER_CLOSE_V214">×</button>
+  <h2 id="TRAILER_TITLE_V214">예고편</h2>
+  <iframe id="TRAILER_PLAYER_V214" frameborder="0" allowfullscreen></iframe>
+ </div>
+</div>
+
+<style>
+.trailer-modal-v214{
+ display:none;
+ position:fixed;
+ inset:0;
+ z-index:999999;
+ background:rgba(0,0,0,.8);
+ align-items:center;
+ justify-content:center;
+}
+.trailer-box-v214{
+ width:min(900px,90vw);
+ background:#111827;
+ padding:28px;
+ border-radius:20px;
+}
+#TRAILER_PLAYER_V214{
+ width:100%;
+ height:420px;
+ background:#000;
+}
+</style>
+
+<script>
+(function(){
+ const modal=document.getElementById("TRAILER_MODAL_V214");
+ const close=document.getElementById("TRAILER_CLOSE_V214");
+ const title=document.getElementById("TRAILER_TITLE_V214");
+
+ document.querySelectorAll("button").forEach(btn=>{
+   if(btn.textContent.includes("예고편 보기")){
+    btn.onclick=function(){
+      const card=btn.closest(".trailer-card-v152");
+      title.textContent=card?.querySelector("h2")?.textContent || "예고편";
+      modal.style.display="flex";
+    };
+   }
+ });
+
+ close.onclick=function(){
+   modal.style.display="none";
+   document.getElementById("TRAILER_PLAYER_V214").src="";
+ };
+})();
+</script>
+
+<style id="TRAILER_MODAL_CENTER_V215">
+#TRAILER_MODAL_V214{
+ position:fixed !important;
+ inset:0 !important;
+ width:100vw !important;
+ height:100vh !important;
+ display:none;
+ align-items:center !important;
+ justify-content:center !important;
+ z-index:999999 !important;
+}
+#TRAILER_MODAL_V214 .trailer-box-v214{
+ margin:auto !important;
+}
+</style>
+
+<script id="TRAILER_PLAYER_V216">
+(function(){
+ const player = document.getElementById("TRAILER_PLAYER_V214");
+ if(!player) return;
+
+ const trailerData = {
+   "Avatar: Fire and Ash": "",
+   "Superman": "",
+   "Mission: Impossible": ""
+ };
+
+ document.addEventListener("click", function(e){
+   const btn = e.target.closest("button");
+   if(!btn || !btn.textContent.includes("예고편 보기")) return;
+
+   const card = btn.closest(".trailer-card-v152");
+   const title = card?.querySelector("h2")?.textContent?.trim();
+
+   if(trailerData[title]){
+     player.src = trailerData[title];
+   } else {
+     player.src = "";
+   }
+ });
+})();
+</script>
+
+<script id="TRAILER_DATA_BIND_V217">
+(function(){
+ const player = document.getElementById("TRAILER_PLAYER_V214");
+ const titleBox = document.getElementById("TRAILER_TITLE_V214");
+
+ if(!player) return;
+
+ const trailers = {
+   "Avatar: Fire and Ash": "",
+   "Superman": "",
+   "Mission: Impossible": ""
+ };
+
+ document.addEventListener("click", function(e){
+   const btn = e.target.closest("button");
+   if(!btn || !btn.textContent.includes("예고편 보기")) return;
+
+   const card = btn.closest(".trailer-card-v152");
+   const title = card?.querySelector("h2")?.textContent?.trim();
+
+   if(titleBox && title) titleBox.textContent = title;
+
+   player.src = trailers[title] || "";
+ });
+})();
+</script>
+
+<script id="TRAILER_DATA_UPDATE_V218">
+(function(){
+ const player = document.getElementById("TRAILER_PLAYER_V214");
+
+ const trailerDataV218 = {
+   "Avatar: Fire and Ash": {
+      type:"youtube",
+      id:""
+   },
+   "Superman": {
+      type:"youtube",
+      id:""
+   },
+   "Mission: Impossible": {
+      type:"youtube",
+      id:""
+   }
+ };
+
+ window.TRAILER_DATA_V218 = trailerDataV218;
+
+ document.addEventListener("click", function(e){
+   const btn = e.target.closest("button");
+   if(!btn || !btn.textContent.includes("예고편 보기")) return;
+
+   const card = btn.closest(".trailer-card-v152");
+   const title = card?.querySelector("h2")?.textContent?.trim();
+
+   const data = trailerDataV218[title];
+
+   if(player && data && data.id){
+      player.src = "https://www.youtube.com/embed/" + data.id;
+   }
+ });
+})();
+</script>
+
+<script id="TRAILER_IDS_V219">
+(function(){
+ const player = document.getElementById("TRAILER_PLAYER_V214");
+ if(!player) return;
+
+ const trailerIds = {
+   "Avatar: Fire and Ash": "",
+   "Superman": "",
+   "Mission: Impossible": ""
+ };
+
+ window.TRAILER_IDS_V219 = trailerIds;
+
+ document.addEventListener("click", function(e){
+   const btn = e.target.closest("button");
+   if(!btn || !btn.textContent.includes("예고편 보기")) return;
+
+   const card = btn.closest(".trailer-card-v152");
+   const title = card?.querySelector("h2")?.textContent?.trim();
+
+   if(trailerIds[title]){
+     player.src = "https://www.youtube.com/embed/" + trailerIds[title];
+   }
+ });
+})();
+</script>
+
+<script id="TRAILER_READY_V220">
+(function(){
+ const player = document.getElementById("TRAILER_PLAYER_V214");
+ if(!player) return;
+
+ // Actual trailer IDs can be filled here without changing the player structure.
+ const trailerSourcesV220 = {
+   "Avatar: Fire and Ash": "",
+   "Superman": "",
+   "Mission: Impossible": ""
+ };
+
+ window.TRAILER_SOURCES_V220 = trailerSourcesV220;
+})();
+</script>
+
+<script id="TRAILER_CONNECTED_V221">
+(function(){
+ const player = document.getElementById("TRAILER_PLAYER_V214");
+ if(!player) return;
+
+ const trailerSources = {
+   "Avatar: Fire and Ash": "https://www.youtube.com/embed/nb_fFj_0rq8",
+   "Superman": "https://www.youtube.com/embed/Ox8ZLF6cGM0",
+   "Mission: Impossible": "https://www.youtube.com/embed/kLzsazwBanE"
+ };
+
+ document.addEventListener("click", function(e){
+   const btn = e.target.closest("button");
+   if(!btn || !btn.textContent.includes("예고편 보기")) return;
+
+   const card = btn.closest(".trailer-card-v152");
+   const title = card?.querySelector("h2")?.textContent?.trim();
+
+   if(trailerSources[title]){
+     player.src = trailerSources[title];
+   }
+ });
+})();
+</script>
+
+<!-- v222 iframe fix -->
+
+<script id="TRAILER_YOUTUBE_NOCOOKIE_V223">
+(function(){
+ const player = document.getElementById("TRAILER_PLAYER_V214");
+ if(!player) return;
+
+ const trailerSources = {
+   "Avatar: Fire and Ash": "",
+   "Superman": "",
+   "Mission: Impossible": ""
+ };
+
+ document.addEventListener("click", function(e){
+   const btn = e.target.closest("button");
+   if(!btn || !btn.textContent.includes("예고편 보기")) return;
+
+   const card = btn.closest(".trailer-card-v152");
+   const title = card?.querySelector("h2")?.textContent?.trim();
+
+   if(trailerSources[title]){
+     player.src =
+       "https://www.youtube-nocookie.com/embed/" +
+       trailerSources[title] +
+       "?enablejsapi=1";
+     player.setAttribute("allow",
+       "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture");
+     player.setAttribute("referrerpolicy",
+       "strict-origin-when-cross-origin");
+   }
+ });
+})();
+</script>
+
+<script id="TRAILER_INTERNAL_VIDEO_V224">
+(function(){
+ const player = document.getElementById("TRAILER_PLAYER_V214");
+
+ const trailerFiles = {
+   "Avatar: Fire and Ash": "assets/trailers/avatar.mp4",
+   "Superman": "assets/trailers/superman.mp4",
+   "Mission: Impossible": "assets/trailers/mission.mp4"
+ };
+
+ document.addEventListener("click", function(e){
+   const btn = e.target.closest("button");
+   if(!btn || !btn.textContent.includes("예고편 보기")) return;
+
+   const card = btn.closest(".trailer-card-v152");
+   const title = card?.querySelector("h2")?.textContent?.trim();
+
+   if(player){
+      player.outerHTML =
+      '<video id="TRAILER_VIDEO_V224" controls playsinline style="width:100%;height:420px;background:#000;border-radius:18px;"></video>';
+
+      const video = document.getElementById("TRAILER_VIDEO_V224");
+      if(video && trailerFiles[title]){
+        video.src = trailerFiles[title];
+        video.load();
+      }
+   }
+ });
+})();
+</script>
+
+<script id="TRAILER_SOURCE_READY_V225">
+(function(){
+ const video = document.getElementById("TRAILER_VIDEO_V224");
+ if(!video) return;
+
+ const sources = {
+   "Avatar: Fire and Ash": "assets/trailers/avatar.mp4",
+   "Superman": "assets/trailers/superman.mp4",
+   "Mission: Impossible": "assets/trailers/mission.mp4"
+ };
+
+ window.TRAILER_INTERNAL_SOURCES_V225 = sources;
+
+ function setTrailerSource(title){
+   if(!video || !sources[title]) return;
+   video.src = sources[title];
+   video.load();
+ }
+
+ document.addEventListener("click", function(e){
+   const btn = e.target.closest("button");
+   if(!btn || !btn.textContent.includes("예고편 보기")) return;
+
+   const card = btn.closest(".trailer-card-v152");
+   const title = card?.querySelector("h2")?.textContent?.trim();
+
+   setTrailerSource(title);
+ });
+})();
+</script>
+
+<script id="TRAILER_EXTERNAL_PLAYER_V226">
+(function(){
+ const video = document.getElementById("TRAILER_VIDEO_V224");
+ if(!video) return;
+
+ /*
+  External source mapping area.
+  The player remains inside archive modal.
+ */
+ const sources = {
+   "Avatar: Fire and Ash": "",
+   "Superman": "",
+   "Mission: Impossible": ""
+ };
+
+ window.TRAILER_EXTERNAL_SOURCES_V226 = sources;
+
+ document.addEventListener("click", function(e){
+   const btn=e.target.closest("button");
+   if(!btn || !btn.textContent.includes("예고편 보기")) return;
+
+   const card=btn.closest(".trailer-card-v152");
+   const title=card?.querySelector("h2")?.textContent?.trim();
+
+   if(video && sources[title]){
+      video.src=sources[title];
+      video.load();
+   }
+ });
+})();
+</script>
+
+<script id="TRAILER_SOURCE_ADAPTER_V227">
+(function(){
+  const player = document.getElementById("TRAILER_PLAYER_V214");
+  if(!player) return;
+
+  // Keep the existing modal/player.
+  // Only the source adapter is changed here.
+  window.TRAILER_SOURCE_ADAPTER_V227 = {
+    setSource:function(source){
+      if(!source) return;
+      player.src = source;
+      player.load?.();
+    },
+    clear:function(){
+      player.src = "";
+      player.load?.();
+    }
+  };
+})();
+</script>
+
+<script id="TRAILER_SOURCE_CONNECTOR_V228">
+(function(){
+  // Keep existing modal/player.
+  // Source connector layer only.
+  window.TRAILER_SOURCE_CONNECTOR_V228 = {
+    connect:function(url){
+      if(window.TRAILER_SOURCE_ADAPTER_V227){
+        window.TRAILER_SOURCE_ADAPTER_V227.setSource(url);
+      }
+    }
+  };
+})();
+</script>
+
+<script id="TRAILER_FINAL_SOURCE_V229">
+(function(){
+  // Keep existing modal/player/source connector.
+  // Only actual source mapping layer is added.
+  window.TRAILER_FINAL_SOURCES_V229 = {
+    "Avatar: Fire and Ash": "",
+    "Superman": "",
+    "Mission: Impossible": ""
+  };
+
+  window.connectTrailerSourceV229 = function(title){
+    const source = window.TRAILER_FINAL_SOURCES_V229[title];
+    if(source && window.TRAILER_SOURCE_CONNECTOR_V228){
+      window.TRAILER_SOURCE_CONNECTOR_V228.connect(source);
+    }
+  };
+})();
+</script>
+
+<script id="TRAILER_SOURCE_HANDLER_V230">
+(function(){
+  // Keep existing modal/player/UI.
+  // Only improves source handling layer.
+  window.TRAILER_SOURCE_HANDLER_V230 = {
+    load:function(url){
+      const player = document.querySelector("video, #TRAILER_PLAYER_V214");
+      if(!player || !url) return false;
+      player.src = url;
+      player.load?.();
+      return true;
+    },
+    clear:function(){
+      const player = document.querySelector("video, #TRAILER_PLAYER_V214");
+      if(player){
+        player.pause?.();
+        player.removeAttribute("src");
+        player.load?.();
+      }
+    }
+  };
+})();
+</script>
+
+<script id="TRAILER_CONTENT_LAYER_V231">
+(function(){
+  // Keep existing modal/player structure.
+  // Content layer only.
+  window.TRAILER_CONTENT_V231 = {
+    get:function(title){
+      const data = {
+        "Avatar: Fire and Ash": null,
+        "Superman": null,
+        "Mission: Impossible": null
+      };
+      return data[title] || null;
+    }
+  };
+})();
+</script>
+
+<script id="TRAILER_CONTENT_DATA_V232">
+(function(){
+  // Keep existing modal/player/content structure.
+  // Add movie trailer metadata layer only.
+  window.TRAILER_DATA_V232 = {
+    "Avatar: Fire and Ash": {
+      title: "Avatar: Fire and Ash",
+      status: "ready"
+    },
+    "Superman": {
+      title: "Superman",
+      status: "ready"
+    },
+    "Mission: Impossible": {
+      title: "Mission: Impossible",
+      status: "ready"
+    }
+  };
+})();
+</script>
+
+<script id="TRAILER_CONTENT_BIND_V233">
+(function(){
+  // KEEP:
+  // Existing pages, modal, player and UI.
+  // Bind trailer data layer only.
+
+  window.TRAILER_CONTENT_BIND_V233 = {
+    getTrailer:function(title){
+      const trailers = {
+        "Avatar: Fire and Ash": {
+          name:"Avatar: Fire and Ash",
+          available:true
+        },
+        "Superman": {
+          name:"Superman",
+          available:true
+        },
+        "Mission: Impossible": {
+          name:"Mission: Impossible",
+          available:true
+        }
+      };
+
+      return trailers[title] || null;
+    }
+  };
+})();
+</script>
+
+<script id="TRAILER_PLAYBACK_DATA_V234">
+(function(){
+  // KEEP:
+  // Existing pages, modal, player, UI.
+  // Playback data layer only.
+
+  window.TRAILER_PLAYBACK_DATA_V234 = {
+    "Avatar: Fire and Ash": {
+      title: "Avatar: Fire and Ash",
+      status: "ready"
+    },
+    "Superman": {
+      title: "Superman",
+      status: "ready"
+    },
+    "Mission: Impossible": {
+      title: "Mission: Impossible",
+      status: "ready"
+    }
+  };
+})();
+</script>
+
+<script id="TRAILER_PLAYBACK_CONNECT_V235">
+(function(){
+  // KEEP:
+  // Existing pages, modal, player, UI.
+  // Connect playback data to existing player only.
+
+  window.TRAILER_PLAYBACK_CONNECT_V235 = {
+    play:function(title){
+      const data = window.TRAILER_PLAYBACK_DATA_V234?.[title];
+
+      if(!data){
+        return {success:false, reason:"no_data"};
+      }
+
+      // Player connection point.
+      // Actual media source is supplied through playback data.
+      return {success:true, title:data.title};
+    }
+  };
+})();
+</script>
+
+<script id="TRAILER_PLAYER_CONNECT_V236">
+(function(){
+  // KEEP:
+  // Existing pages, modal, player UI.
+  // Connect playback flow only.
+
+  window.TRAILER_PLAYER_CONNECT_V236 = {
+    connect:function(title){
+      const data = window.TRAILER_PLAYBACK_DATA_V234?.[title];
+
+      if(!data){
+        return {
+          success:false,
+          status:"no_source"
+        };
+      }
+
+      return {
+        success:true,
+        title:data.title,
+        status:"connected"
+      };
+    }
+  };
+})();
+</script>
+
+<script id="TRAILER_PLAYER_OUTPUT_V237">
+(function(){
+  window.TRAILER_PLAYER_OUTPUT_V237 = {
+    attach:function(player, source){
+      if(!player || !source) return false;
+      player.src = source;
+      if(player.load) player.load();
+      return true;
+    },
+    reset:function(player){
+      if(!player) return;
+      if(player.pause) player.pause();
+      if(player.removeAttribute) player.removeAttribute("src");
+      if(player.load) player.load();
+    }
+  };
+})();
+</script>
+
+<script id="TRAILER_PLAYBACK_ENGINE_V238">
+(function(){
+  // KEEP:
+  // Existing pages, modal, player UI and layout.
+  // Playback engine layer only.
+
+  window.TRAILER_PLAYBACK_ENGINE_V238 = {
+    start:function(player, source){
+      if(!player || !source){
+        return {success:false, status:"missing_source"};
+      }
+
+      player.src = source;
+      player.load?.();
+
+      return {
+        success:true,
+        status:"loaded"
+      };
+    },
+
+    stop:function(player){
+      if(!player) return;
+
+      player.pause?.();
+      player.removeAttribute?.("src");
+      player.load?.();
+
+      return {
+        success:true,
+        status:"stopped"
+      };
+    }
+  };
+})();
+</script>
+
+<script id="TRAILER_PLAYBACK_TEST_LAYER_V239">
+(function(){
+  // KEEP:
+  // Existing pages, modal, player, and layout.
+  // Test layer only.
+
+  window.TRAILER_PLAYBACK_TEST_LAYER_V239 = {
+    check:function(source){
+      if(!source){
+        return {success:false, status:"empty_source"};
+      }
+
+      return {
+        success:true,
+        status:"source_ready"
+      };
+    }
+  };
+})();
+</script>
+
+<script id="TRAILER_SOURCE_READY_V240">
+(function(){
+  // KEEP:
+  // Existing pages, modal, player and layout.
+  // Source preparation layer only.
+
+  window.TRAILER_SOURCE_READY_V240 = {
+    prepare:function(source){
+      if(!source){
+        return {
+          success:false,
+          status:"missing_source"
+        };
+      }
+
+      return {
+        success:true,
+        status:"source_prepared",
+        source:source
+      };
+    }
+  };
+})();
+</script>
+
+<script id="TRAILER_FINAL_CONNECT_V241">
+(function(){
+  // FINAL CONNECTION STEP
+  // Keep existing modal/player/layout.
+  // Connect selected trailer source directly to player.
+
+  window.TRAILER_FINAL_CONNECT_V241 = {
+    play:function(title, source){
+      const player = document.querySelector("video, #TRAILER_PLAYER_V214");
+
+      if(!player || !source){
+        return {
+          success:false,
+          status:"missing_player_or_source"
+        };
+      }
+
+      player.src = source;
+
+      if(player.load) player.load();
+      if(player.play){
+        player.play().catch(function(){});
+      }
+
+      return {
+        success:true,
+        status:"playing",
+        title:title
+      };
+    }
+  };
+})();
+</script>
+
+<script id="TRAILER_SOURCE_COMPLETE_V242">
+(function(){
+  // KEEP:
+  // Existing pages, modal, player and UI.
+  // Final source mapping only.
+
+  window.TRAILER_SOURCES_V242 = {
+    "Avatar: Fire and Ash": "",
+    "Superman": "",
+    "Mission: Impossible": ""
+  };
+
+  window.playTrailerV242 = function(title){
+    const source = window.TRAILER_SOURCES_V242[title];
+
+    if(!source){
+      return {
+        success:false,
+        status:"source_missing"
+      };
+    }
+
+    const player = document.querySelector("video, #TRAILER_PLAYER_V214");
+
+    if(!player){
+      return {
+        success:false,
+        status:"player_missing"
+      };
+    }
+
+    player.src = source;
+    player.load?.();
+    player.play?.().catch(()=>{});
+
+    return {
+      success:true,
+      status:"playing"
+    };
+  };
+})();
+</script>
+
+<script id="TRAILER_SOURCE_RUNTIME_V243">
+(function(){
+  // Keep existing trailer modal/player.
+  // Runtime source binding only.
+
+  window.TRAILER_SOURCE_RUNTIME_V243 = {
+    attach:function(title, source){
+      const player = document.querySelector("video, #TRAILER_PLAYER_V214");
+
+      if(!player || !source){
+        return {
+          success:false,
+          status:"missing_player_or_source"
+        };
+      }
+
+      player.src = source;
+      player.load?.();
+
+      return {
+        success:true,
+        status:"source_attached",
+        title:title
+      };
+    }
+  };
+})();
+</script>
+
+<script id="TRAILER_REAL_PLAYBACK_V244">
+(function(){
+  // FINAL PLAYBACK TEST CONNECTION
+  // Keep existing modal/player/layout.
+
+  window.TRAILER_REAL_PLAYBACK_V244 = {
+    play:function(title, source){
+      const player = document.querySelector("video, #TRAILER_PLAYER_V214");
+
+      if(!player){
+        return {success:false, status:"player_missing"};
+      }
+
+      if(!source){
+        return {success:false, status:"source_missing"};
+      }
+
+      player.src = source;
+      player.load();
+
+      const result = player.play?.();
+
+      if(result && result.catch){
+        result.catch(function(){});
+      }
+
+      return {
+        success:true,
+        status:"play_requested",
+        title:title
+      };
+    }
+  };
+})();
+</script>
+
+<script id="TRAILER_PLAYBACK_FINAL_V245">
+(function(){
+  // Final playback connection layer.
+  // Existing modal/player/layout are preserved.
+
+  window.TRAILER_PLAYBACK_FINAL_V245 = {
+    attachAndPlay:function(title, source){
+      const player = document.querySelector("video, #TRAILER_PLAYER_V214");
+
+      if(!player){
+        return {success:false, status:"player_missing"};
+      }
+
+      if(!source){
+        return {success:false, status:"source_missing"};
+      }
+
+      player.src = source;
+      player.load();
+
+      const promise = player.play();
+      if(promise && promise.catch){
+        promise.catch(function(){});
+      }
+
+      return {
+        success:true,
+        status:"playing",
+        title:title
+      };
+    }
+  };
+})();
+</script>
+
+<script id="TRAILER_TEST_SOURCE_V246">
+(function(){
+  // KEEP:
+  // Existing modal/player/layout.
+  // Only inject a real test source.
+
+  window.TRAILER_TEST_SOURCE_V246 = {
+    testVideo: "https://www.w3schools.com/html/mov_bbb.mp4"
+  };
+
+  window.playTrailerTestV246 = function(){
+    const player = document.querySelector("video, #TRAILER_PLAYER_V214");
+
+    if(!player){
+      return {success:false, status:"player_missing"};
+    }
+
+    player.src = window.TRAILER_TEST_SOURCE_V246.testVideo;
+    player.load();
+
+    return {
+      success:true,
+      status:"test_source_loaded"
+    };
+  };
+})();
+</script>
+
+<script id="TRAILER_BUTTON_LINK_V247">
+(function(){
+  // KEEP:
+  // Existing modal/player/layout.
+  // Only connect button click to test source.
+
+  const TEST_SOURCE = "https://www.w3schools.com/html/mov_bbb.mp4";
+
+  document.addEventListener("click", function(e){
+    const btn = e.target.closest("button");
+    if(!btn || !btn.textContent.includes("예고편 보기")) return;
+
+    setTimeout(function(){
+      const player = document.querySelector("video, #TRAILER_PLAYER_V214");
+
+      if(!player) return;
+
+      player.src = TEST_SOURCE;
+      player.load();
+
+      const p = player.play?.();
+      if(p && p.catch){
+        p.catch(function(){});
+      }
+    }, 300);
+  });
+})();
+</script>
+
+<script id="TRAILER_PLAYER_FIX_V248">
+(function(){
+  // KEEP:
+  // Existing modal/player/layout.
+  // Fix close behavior and playback cleanup only.
+
+  function stopTrailerVideo(){
+    const player = document.querySelector("video, #TRAILER_PLAYER_V214");
+
+    if(!player) return;
+
+    try{
+      player.pause();
+      player.currentTime = 0;
+      player.removeAttribute("src");
+      player.load();
+    }catch(e){}
+  }
+
+  document.addEventListener("click", function(e){
+    const target = e.target;
+
+    if(
+      target.matches(".close, .modal-close, [data-close], button") &&
+      (target.textContent.includes("닫기") ||
+       target.getAttribute("aria-label") === "close")
+    ){
+      stopTrailerVideo();
+    }
+  });
+
+  window.stopTrailerVideoV248 = stopTrailerVideo;
+})();
+</script>
+
+<script id="TRAILER_AUDIO_FIX_V249">
+(function(){
+  // Robust trailer shutdown.
+  // Keep existing UI/modal/player.
+
+  function forceStopTrailer(){
+    const players = document.querySelectorAll("video, audio, iframe");
+
+    players.forEach(function(p){
+      try{
+        if(p.tagName === "VIDEO" || p.tagName === "AUDIO"){
+          p.pause();
+          p.currentTime = 0;
+          p.muted = true;
+          p.removeAttribute("src");
+          p.load();
+        }
+
+        if(p.tagName === "IFRAME"){
+          p.src = "about:blank";
+        }
+      }catch(e){}
+    });
+  }
+
+  const observer = new MutationObserver(function(){
+    const modal = document.querySelector(".modal, .trailer-modal, [role='dialog']");
+
+    if(modal && (modal.style.display === "none" || !document.body.contains(modal))){
+      forceStopTrailer();
+    }
+  });
+
+  observer.observe(document.body, {
+    childList:true,
+    subtree:true,
+    attributes:true,
+    attributeFilter:["style","class"]
+  });
+
+  window.forceStopTrailerV249 = forceStopTrailer;
+})();
+</script>
+
+<script id="TRAILER_DIRECT_PLAYER_CONTROL_V250">
+(function(){
+  // Keep existing UI/modal/player.
+  // Direct player reference control only.
+
+  let activeTrailerPlayer = null;
+
+  window.registerTrailerPlayerV250 = function(player){
+    activeTrailerPlayer = player;
+  };
+
+  window.stopTrailerPlayerV250 = function(){
+    const player = activeTrailerPlayer;
+
+    if(!player) return;
+
+    try{
+      player.pause();
+      player.currentTime = 0;
+      player.muted = true;
+      player.removeAttribute("src");
+      player.load();
+    }catch(e){}
+
+    activeTrailerPlayer = null;
+  };
+})();
+</script>
+
+<script id="TRAILER_MODAL_CLEANUP_V251">
+(function(){
+  // Direct modal cleanup hook.
+  // Keep existing UI/player structure.
+
+  window.cleanupTrailerModalV251 = function(){
+    const player = document.querySelector("video");
+
+    if(player){
+      try{
+        player.pause();
+        player.currentTime = 0;
+        player.removeAttribute("src");
+        player.load();
+        player.remove();
+      }catch(e){}
+    }
+  };
+
+  document.addEventListener("click", function(e){
+    const text = (e.target.textContent || "").trim();
+
+    if(
+      text.includes("닫기") ||
+      e.target.classList.contains("close") ||
+      e.target.classList.contains("modal-close")
+    ){
+      window.cleanupTrailerModalV251();
+    }
+  });
+})();
+</script>
+
+<script id="TRAILER_CLOSE_FUNCTION_FIX_V252">
+(function(){
+  // Hook close flow instead of only searching for a player.
+  // Existing modal/player UI is preserved.
+
+  function cleanupActiveMedia(){
+    document.querySelectorAll("video, audio").forEach(function(media){
+      try{
+        media.pause();
+        media.currentTime = 0;
+        media.muted = true;
+        media.removeAttribute("src");
+        media.load();
+      }catch(e){}
+    });
+  }
+
+  const originalCloseCandidates = [
+    "closeTrailer",
+    "closeModal",
+    "closeTrailerModal"
+  ];
+
+  originalCloseCandidates.forEach(function(name){
+    if(typeof window[name] === "function"){
+      const original = window[name];
+      window[name] = function(){
+        cleanupActiveMedia();
+        return original.apply(this, arguments);
+      };
+    }
+  });
+
+  document.addEventListener("click", function(e){
+    const el = e.target.closest("button, .close, [data-close]");
+    if(!el) return;
+
+    const text = (el.textContent || "").trim();
+    if(text.includes("닫기") || text.includes("×")){
+      cleanupActiveMedia();
+    }
+  }, true);
+
+})();
+</script>
+
+<script id="TRAILER_AUDIO_BEHAVIOR_FIX_V253">
+(function(){
+  // Keep close cleanup from v252.
+  // Remove forced mute behavior only.
+
+  window.TRAILER_AUDIO_BEHAVIOR_FIX_V253 = {
+    cleanup:function(media){
+      if(!media) return;
+
+      try{
+        media.pause();
+        media.currentTime = 0;
+        media.removeAttribute("src");
+        media.load();
+      }catch(e){}
+    }
+  };
+})();
+</script>
+
+<script id="TRAILER_DATA_CONNECT_V254">
+(function(){
+  // Keep v253 playback behavior.
+  // Add movie trailer metadata connection point only.
+
+  window.TRAILER_DATA_V254 = {
+    titles: {}
+  };
+
+  window.setTrailerSourceV254 = function(title, source){
+    window.TRAILER_DATA_V254.titles[title] = {
+      source: source
+    };
+  };
+})();
+</script>
+
+<script id="TRAILER_MOVIE_DATA_V255">
+(function(){
+  // Keep v253 playback/close behavior.
+  // Add movie trailer data structure only.
+
+  window.TRAILER_MOVIE_DATA_V255 = {
+    movies: {
+      "Avatar: Fire and Ash": {
+        source: "",
+        status: "ready"
+      },
+      "Superman": {
+        source: "",
+        status: "ready"
+      },
+      "Mission: Impossible": {
+        source: "",
+        status: "ready"
+      }
+    }
+  };
+})();
+</script>
+
+<script id="TRAILER_SOURCE_BIND_V256">
+(function(){
+window.bindTrailerSourceV256=function(title){
+ const data=window.TRAILER_MOVIE_DATA_V255?.movies?.[title];
+ if(!data) return {success:false,status:"movie_data_missing"};
+ return {success:true,status:"source_ready",source:data.source};
+};
+})();
+</script>
+
+<script id="TRAILER_PLAYER_BIND_V257">
+(function(){
+  // Keep v253 playback/close behavior.
+  // Connect source binding result to existing player flow only.
+
+  window.playBoundTrailerV257 = function(title){
+    const result = window.bindTrailerSourceV256?.(title);
+
+    if(!result || !result.success || !result.source){
+      return {
+        success:false,
+        status:"source_unavailable"
+      };
+    }
+
+    const player = document.querySelector("video");
+
+    if(!player){
+      return {
+        success:false,
+        status:"player_missing"
+      };
+    }
+
+    player.src = result.source;
+    player.load();
+
+    const playResult = player.play?.();
+
+    if(playResult && playResult.catch){
+      playResult.catch(function(){});
+    }
+
+    return {
+      success:true,
+      status:"playing",
+      title:title
+    };
+  };
+})();
+</script>
+
+<script id="TRAILER_SOURCE_MAPPING_V258">
+(function(){
+  // Keep v253 playback and close behavior.
+  // Real movie source mapping layer.
+
+  window.TRAILER_SOURCE_MAPPING_V258 = {
+    movies: {
+      "Avatar: Fire and Ash": {
+        source: "",
+        status: "waiting"
+      },
+      "Superman": {
+        source: "",
+        status: "waiting"
+      },
+      "Mission: Impossible": {
+        source: "",
+        status: "waiting"
+      }
+    }
+  };
+
+  window.updateTrailerSourceV258 = function(title, source){
+    if(!window.TRAILER_SOURCE_MAPPING_V258.movies[title]){
+      return false;
+    }
+
+    window.TRAILER_SOURCE_MAPPING_V258.movies[title].source = source;
+    window.TRAILER_SOURCE_MAPPING_V258.movies[title].status = "ready";
+    return true;
+  };
+})();
+</script>
+
+<script id="TRAILER_SOURCE_READY_V259">
+(function(){
+  window.TRAILER_SOURCE_READY_V259 = {
+    get:function(title){
+      const movie = window.TRAILER_SOURCE_MAPPING_V258?.movies?.[title];
+
+      if(!movie || !movie.source){
+        return {success:false,status:"source_not_ready"};
+      }
+
+      return {success:true,status:"ready",source:movie.source};
+    }
+  };
+})();
+</script>
+
+<script src="kr-pool-v458.js"></script>
+<script src="kr-pool-v459.js"></script>
+<script src="mma-v461-feed-link.js"></script>
+<script src="mma-v459-refresh-fix.js"></script>

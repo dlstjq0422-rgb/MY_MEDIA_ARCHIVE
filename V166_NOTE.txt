@@ -1,0 +1,4 @@
+v166 Trailer poster upgrade
+- Existing pages preserved
+- Trailer card poster area improved
+- No navigation/layout changes

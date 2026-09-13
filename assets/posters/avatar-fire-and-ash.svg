@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1200" viewBox="0 0 800 1200">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#0b1020"/>
+    <stop offset="100%" stop-color="#e56b2f"/>
+  </linearGradient>
+  <radialGradient id="glow" cx="50%" cy="25%" r="65%">
+    <stop offset="0%" stop-color="#53d5ff" stop-opacity="0.35"/>
+    <stop offset="100%" stop-color="#53d5ff" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="800" height="1200" fill="url(#bg)"/>
+<rect width="800" height="1200" fill="url(#glow)"/>
+<circle cx="400" cy="350" r="220" fill="none" stroke="#53d5ff" stroke-width="8" opacity="0.45"/>
+<circle cx="400" cy="350" r="160" fill="rgba(255,255,255,0.06)"/>
+<path d="M170 370 C290 280, 520 250, 650 340" fill="none" stroke="#53d5ff" stroke-width="18" opacity="0.5" stroke-linecap="round"/>
+<path d="M150 420 C280 350, 540 330, 670 410" fill="none" stroke="white" stroke-opacity="0.18" stroke-width="6" stroke-linecap="round"/>
+<rect x="0" y="860" width="800" height="340" fill="rgba(0,0,0,0.55)"/>
+<text x="70" y="920" font-family="Arial" font-size="82" font-weight="800" fill="white" letter-spacing="2">AVATAR</text>
+<text x="70" y="1015" font-family="Arial" font-size="82" font-weight="800" fill="white" letter-spacing="2">FIRE AND ASH</text>
+<text x="72" y="1130" font-family="Arial" font-size="28" font-weight="600" fill="#53d5ff" letter-spacing="3">DISNEY • SCI-FI • 2025</text>
+</svg>

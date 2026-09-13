@@ -1,0 +1,4 @@
+v167 Trailer info polish
+- Trailer cards only
+- Added metadata tag styling
+- Existing pages preserved

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1200" viewBox="0 0 800 1200">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#0c2340"/>
+    <stop offset="100%" stop-color="#9b1c1c"/>
+  </linearGradient>
+  <radialGradient id="glow" cx="50%" cy="25%" r="65%">
+    <stop offset="0%" stop-color="#f3d34a" stop-opacity="0.35"/>
+    <stop offset="100%" stop-color="#f3d34a" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="800" height="1200" fill="url(#bg)"/>
+<rect width="800" height="1200" fill="url(#glow)"/>
+<path d="M400 170 L530 230 L500 400 L400 500 L300 400 L270 230 Z" fill="none" stroke="#f3d34a" stroke-width="16" opacity="0.65"/>
+<path d="M400 250 C450 235, 485 260, 505 305 C470 290, 438 302, 400 340 C362 302, 330 290, 295 305 C315 260, 350 235, 400 250 Z" fill="#f3d34a" opacity="0.45"/>
+<rect x="0" y="860" width="800" height="340" fill="rgba(0,0,0,0.55)"/>
+<text x="70" y="940" font-family="Arial" font-size="82" font-weight="800" fill="white" letter-spacing="2">SUPERMAN</text>
+<text x="72" y="1130" font-family="Arial" font-size="28" font-weight="600" fill="#f3d34a" letter-spacing="3">DC • ACTION • 2025</text>
+</svg>

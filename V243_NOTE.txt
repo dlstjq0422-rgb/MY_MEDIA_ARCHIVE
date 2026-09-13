@@ -1,0 +1,9 @@
+v243
+
+KEEP:
+- Existing pages/layout/navigation
+- Center trailer modal
+- Single player structure
+
+CHANGE:
+- Runtime source attachment only.

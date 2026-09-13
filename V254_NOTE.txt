@@ -1,0 +1,9 @@
+v254
+
+KEEP:
+- Existing pages/layout/navigation
+- Center trailer modal
+- Working playback/close behavior from v253
+
+CHANGE:
+- Trailer source data connection point only.

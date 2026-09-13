@@ -1,0 +1,4 @@
+v164 Trailer data expansion
+- Existing UI preserved
+- Trailer cards expanded
+- No main pages modified

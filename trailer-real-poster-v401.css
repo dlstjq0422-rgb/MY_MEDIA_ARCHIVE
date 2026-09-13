@@ -1,0 +1,23 @@
+
+/* v401 real poster visual */
+.poster-visible-v391{
+ position:relative;
+ background-size:cover !important;
+ background-position:center !important;
+}
+.trailer-card-v152:nth-child(1) .poster-visible-v391{
+ background-image:linear-gradient(to top,rgba(0,0,0,.65),transparent 55%),url("assets/cinema_01.png") !important;
+}
+.trailer-card-v152:nth-child(2) .poster-visible-v391{
+ background-image:linear-gradient(to top,rgba(0,0,0,.65),transparent 55%),url("assets/cinema_02.png") !important;
+}
+.trailer-card-v152:nth-child(3) .poster-visible-v391{
+ background-image:linear-gradient(to top,rgba(0,0,0,.65),transparent 55%),url("assets/cinema_03.png") !important;
+}
+.poster-visible-v391 b{
+ left:50% !important;
+ top:50% !important;
+ right:auto !important;
+ bottom:auto !important;
+ transform:translate(-50%,-50%);
+}

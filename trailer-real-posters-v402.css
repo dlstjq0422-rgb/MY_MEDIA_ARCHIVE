@@ -1,0 +1,42 @@
+
+/* MY MEDIA ARCHIVE v402 - Local poster visuals */
+.trailer-poster-v152.poster-image-v166.poster-visible-v391{
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.trailer-poster-v152.poster-image-v166.poster-visible-v391::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.04), rgba(0,0,0,0.42));
+  pointer-events: none;
+}
+
+.trailer-poster-v152.poster-image-v166.poster-visible-v391 b{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 58px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.93);
+  color: #101216;
+  font-size: 24px;
+  z-index: 2;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+
+.poster-avatar-v402{ background-image: url('assets/posters/avatar-fire-and-ash.svg') !important; }
+.poster-superman-v402{ background-image: url('assets/posters/superman.svg') !important; }
+.poster-mi-v402{ background-image: url('assets/posters/mission-impossible.svg') !important; }
+.poster-ff-v402{ background-image: url('assets/posters/fantastic-four.svg') !important; }
+.poster-jw-v402{ background-image: url('assets/posters/jurassic-world.svg') !important; }
+.poster-f1-v402{ background-image: url('assets/posters/f1.svg') !important; }

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1200" viewBox="0 0 800 1200">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#121212"/>
+    <stop offset="100%" stop-color="#6b0f1a"/>
+  </linearGradient>
+  <radialGradient id="glow" cx="50%" cy="25%" r="65%">
+    <stop offset="0%" stop-color="#ff7a00" stop-opacity="0.35"/>
+    <stop offset="100%" stop-color="#ff7a00" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="800" height="1200" fill="url(#bg)"/>
+<rect width="800" height="1200" fill="url(#glow)"/>
+<path d="M110 720 L640 160" stroke="#ff7a00" stroke-width="28" opacity="0.55" stroke-linecap="round"/>
+<path d="M180 780 L710 220" stroke="white" stroke-opacity="0.14" stroke-width="10" stroke-linecap="round"/>
+<rect x="0" y="860" width="800" height="340" fill="rgba(0,0,0,0.55)"/>
+<text x="70" y="920" font-family="Arial" font-size="82" font-weight="800" fill="white" letter-spacing="2">MISSION:</text>
+<text x="70" y="1015" font-family="Arial" font-size="82" font-weight="800" fill="white" letter-spacing="2">IMPOSSIBLE</text>
+<text x="72" y="1130" font-family="Arial" font-size="28" font-weight="600" fill="#ff7a00" letter-spacing="3">ACTION • COMING SOON</text>
+</svg>

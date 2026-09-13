@@ -1,0 +1,4 @@
+v223
+- Changed YouTube embed target to youtube-nocookie.
+- Added iframe permissions and js api options.
+- Kept trailer modal/layout unchanged.

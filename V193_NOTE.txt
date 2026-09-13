@@ -1,0 +1,4 @@
+v193
+- Added trailer modal interaction only.
+- Kept v191/v192 isolated approach.
+- No video, iframe, or global overlay added.

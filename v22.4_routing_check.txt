@@ -1,0 +1,6 @@
+v22.4 fixes:
+- Header/background layering
+- ADD title composition
+- Navigation click layer priority
+
+Existing app logic preserved.

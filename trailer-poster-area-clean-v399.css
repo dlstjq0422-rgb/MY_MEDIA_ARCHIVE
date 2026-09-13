@@ -1,0 +1,28 @@
+
+/* v399: keep poster area clean */
+.poster-visible-v391{
+ position:relative;
+ overflow:hidden;
+}
+.poster-visible-v391 > span,
+.poster-visible-v391 > h1,
+.poster-visible-v391 > h2,
+.poster-visible-v391 > p{
+ display:none !important;
+}
+.poster-visible-v391 b{
+ position:absolute;
+ left:50%;
+ top:50%;
+ transform:translate(-50%,-50%);
+ z-index:3;
+ width:64px;
+ height:64px;
+ border-radius:50%;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ background:rgba(255,255,255,.92);
+ color:#111;
+ font-size:26px;
+}

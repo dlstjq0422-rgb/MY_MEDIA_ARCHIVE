@@ -1,0 +1,4 @@
+v180
+- Connected a test video source to verify playback pipeline.
+- Trailer modal/player structure preserved.
+- Next step: replace test source with movie trailer sources.

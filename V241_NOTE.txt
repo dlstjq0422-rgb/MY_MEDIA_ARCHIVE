@@ -1,0 +1,11 @@
+v241
+
+FINAL CONNECTION STEP
+
+KEEP:
+- Existing pages/layout/navigation
+- Center trailer modal
+- Single player structure
+
+CHANGE:
+- Direct trailer source -> player connection only.

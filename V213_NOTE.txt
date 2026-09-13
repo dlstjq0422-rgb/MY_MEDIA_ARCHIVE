@@ -1,0 +1,5 @@
+v213
+- Rebuilt trailer module cleanly.
+- Removed previous trailer event accumulation.
+- One modal / one click handler only.
+- Existing site sections preserved.

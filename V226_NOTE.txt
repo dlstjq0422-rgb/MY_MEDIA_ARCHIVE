@@ -1,0 +1,8 @@
+v226
+KEEP:
+- All existing pages/layout/navigation
+- Trailer modal position and single player
+
+CHANGE:
+- Removed dependency on user-provided local mp4 concept.
+- Prepared internal player for external media sources.

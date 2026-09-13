@@ -1,0 +1,10 @@
+v250
+
+KEEP:
+- Existing pages/layout/navigation
+- Center trailer modal
+- Single player structure
+
+CHANGE:
+- Direct active player reference control.
+- Stop player instance directly on close.
