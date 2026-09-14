@@ -712,11 +712,11 @@ font-style:normal;
       .trailer-live-poster-v422{position:relative;display:block;height:228px;overflow:hidden;cursor:pointer;background:#111}
       .trailer-live-poster-v422 img{width:100%;height:100%;object-fit:cover;display:block}
       .trailer-live-play-v422{position:absolute;left:16px;bottom:16px;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.92);color:#0e1527;font-size:14px;font-weight:900;box-shadow:0 12px 28px rgba(0,0,0,.26)}
-      .trailer-live-copy-v422{padding:16px}
-      .trailer-live-badges-v422{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+      .trailer-live-copy-v422{padding:16px;display:flex;flex-direction:column;align-items:center;text-align:center;min-height:210px}
+      .trailer-live-badges-v422{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:12px}
       .trailer-live-badge-v422{padding:5px 10px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);color:#c8d6fb;font-size:11px;font-weight:700}
-      .trailer-live-title-v422{margin:0 0 14px;color:#f5f7ff;font-size:14px;line-height:1.45;min-height:40px}
-      .trailer-live-open-v422{width:100%;appearance:none;border:none;border-radius:14px;padding:12px 14px;background:#fff;color:#111a2d;font-weight:800;cursor:pointer}
+      .trailer-live-title-v422{margin:0 0 14px;color:#f5f7ff;font-size:14px;line-height:1.45;min-height:40px;text-align:center}
+      .trailer-live-open-v422{width:100%;height:42px;appearance:none;border:none;border-radius:14px;padding:12px 14px;background:#fff;color:#111a2d;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;margin-top:auto}
       @media (max-width: 1100px){.trailer-live-grid-v422{grid-template-columns:repeat(2,minmax(0,1fr));}}
       @media (max-width: 700px){.trailer-live-grid-v422{grid-template-columns:1fr}.trailer-live-head-v422{flex-direction:column}.trailer-live-controls-v422{justify-content:flex-start}.trailer-live-poster-v422{height:210px}}
     `;
@@ -1016,7 +1016,7 @@ font-style:normal;
     if(!section || timer) return;
     timer=setInterval(function(){
       const refresh=section.querySelector('.trailer-live-refresh-v422');
-      if(refresh) refresh.click();
+      if(refresh && !document.querySelector('.trailer-live-modal-v214')) refresh.click();
     },30000);
   }
   if(document.readyState==='loading'){
