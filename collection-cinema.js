@@ -65,7 +65,7 @@ console.log('[CINEMA] SCRIPT LOADED');
   currentFrame=o.querySelector('.collection-cinema-bg-frame');
 
   currentFrame.src=
-   `https://www.youtube.com/embed/${id}?autoplay=1&mute=1&playsinline=1&controls=0&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1`;
+   `https://www.youtube.com/embed/${id}?autoplay=1&mute=0&playsinline=1&controls=0&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1`;
 
   console.log('[CINEMA] iframe src', currentFrame.src);
 
