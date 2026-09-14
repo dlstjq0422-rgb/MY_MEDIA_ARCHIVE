@@ -566,21 +566,27 @@ font-style:normal;
     });
     applyFilter('ALL');
 
-    // v471 main trailer archive cycle: reuse the main trailer refresh/render flow
+    // v471 main trailer archive cycle: reuse static 6 cards and inject data window
     let cycleIndex = 0;
     const cycleCards = Array.from(section.querySelectorAll('.trailer-grid-v152 > .trailer-card-v152'));
-    function refreshMainTrailerCards(){
-      if(cycleCards.length <= 6) return;
-      const start = cycleIndex;
+    const cycleData = Object.keys(trailers);
+    function updateMainTrailerCards(){
+      if(cycleCards.length !== 6 || cycleData.length <= 6) return;
       cycleCards.forEach((card, idx)=>{
-        const visible = idx >= start && idx < start + 6;
-        card.classList.toggle('is-hidden-v408', !visible);
+        const title = cycleData[(cycleIndex + idx) % cycleData.length];
+        const item = trailers[title];
+        const h2 = card.querySelector('h2');
+        const summary = card.querySelector('.trailer-summary-v408');
+        if(h2) h2.textContent = title;
+        if(summary) summary.textContent = item.summary || '';
+        card.dataset.trailerTitle = title;
+        card.classList.remove('is-hidden-v408');
       });
-      cycleIndex = start + 6;
-      if(cycleIndex >= cycleCards.length) cycleIndex = 0;
+      cycleIndex += 6;
+      if(cycleIndex >= cycleData.length) cycleIndex = 0;
     }
-    refreshMainTrailerCards();
-    window.setInterval(refreshMainTrailerCards, 15000);
+    updateMainTrailerCards();
+    window.setInterval(updateMainTrailerCards, 15000);
   }
 
   if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
