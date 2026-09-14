@@ -47,10 +47,22 @@
 
  window.COLLECTION_CINEMA_OPEN=open;
 
- document.addEventListener('click',function(e){
+ function cinemaCollectionHandler(e){
   const card=e.target.closest('.collection-card');
   if(!card)return;
+
   const item=getItemFromCard(card);
+  const id=OST_VIDEO_MAP[item.title];
+
+  // Only override the existing collection modal for cinema-enabled titles.
+  if(!id)return;
+
+  e.preventDefault();
+  e.stopPropagation();
+  e.stopImmediatePropagation();
+
   open(item);
- });
+ }
+
+ document.addEventListener('click', cinemaCollectionHandler, true);
 })();
