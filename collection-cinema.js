@@ -55,9 +55,10 @@
   if(!card)return;
 
   const item=getItemFromCard(card);
-  const id=OST_VIDEO_MAP[item.title];
+  if(!item || !item.title)return;
 
-if(!id)return;
+  const id=OST_VIDEO_MAP[item.title];
+  if(!id)return;
 
 e.preventDefault();
 e.stopPropagation();
