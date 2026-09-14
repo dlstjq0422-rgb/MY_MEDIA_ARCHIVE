@@ -51,6 +51,7 @@
   const card=e.target.closest('.collection-card');
   if(!card)return;
   const item=getItemFromCard(card);
+  if(!OST_VIDEO_MAP[item.title]) return;
   open(item);
  });
 })();
