@@ -808,8 +808,15 @@ font-style:normal;
     const p = document.getElementById('TRAILER_PLAYER_V214');
     const m = document.querySelector('.trailer-modal-v214') || document.getElementById('TRAILER_MODAL_V214');
     if(p && m){
-      p.src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1';
+      // Keep modal UI unchanged. Attach iframe source after the modal layer is visible
+      // to avoid competing with the opening transition/layout calculation.
+      p.src = '';
       m.style.display = 'flex';
+      requestAnimationFrame(function(){
+        requestAnimationFrame(function(){
+          p.src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1';
+        });
+      });
     } else {
       window.open('https://www.youtube.com/watch?v=' + videoId, '_blank', 'noopener');
     }
