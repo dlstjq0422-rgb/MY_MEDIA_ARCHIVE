@@ -1,142 +1,216 @@
 console.log('[CINEMA] SCRIPT LOADED');
 
 (function(){
+
  const OST_VIDEO_MAP = {
   "너의 이름은.": "a2GujJZfXpg",
   "날씨의 아이": "QpJc2L4VvKc",
   "스즈메의 문단속": "BzGm3mYfJ2M"
  };
 
- let currentFrame;
+ let currentFrame = null;
+
 
  function ensure(){
+
   console.log('[CINEMA] ensure');
 
-  if(document.getElementById('collectionCinemaOverlay')) return;
+  if(document.getElementById('collectionCinemaOverlay')){
+   return;
+  }
+
 
   const o=document.createElement('div');
+
   o.id='collectionCinemaOverlay';
   o.className='collection-cinema-overlay';
- o.innerHTML='<div class="collection-cinema-video-bg"><iframe class="collection-cinema-bg-frame" allow="autoplay; fullscreen"></iframe></div><div class="collection-cinema-dark"></div><button class="collection-cinema-close">×</button>';
+
+  o.innerHTML=
+   '<div class="collection-cinema-video-bg">' +
+   '<iframe class="collection-cinema-bg-frame" allow="autoplay; fullscreen"></iframe>' +
+   '</div>' +
+   '<div class="collection-cinema-dark"></div>' +
+   '<button class="collection-cinema-close">×</button>';
+
+
   document.body.appendChild(o);
 
- e.stopPropagation();
 
- const frame=o.querySelector('.collection-cinema-bg-frame');
+  o.querySelector('.collection-cinema-close').onclick=close;
 
- if(!frame)return;
+  o.onclick=e=>{
+   if(e.target===o){
+    close();
+   }
+  };
 
- if(this.dataset.muted==="true"){
-   frame.contentWindow.postMessage(
-    '{"event":"command","func":"unMute","args":""}',
-    '*'
-   );
-
-   this.textContent="🔊";
-   this.dataset.muted="false";
-
- }else{
-
-   frame.contentWindow.postMessage(
-    '{"event":"command","func":"mute","args":""}',
-    '*'
-   );
-
-   this.textContent="🔇";
-   this.dataset.muted="true";
  }
 
-};
-  o.onclick=e=>{if(e.target===o)close()};
- }
+
 
  function getItemFromCard(card){
+
   const title =
    card.querySelector('.media-title')?.textContent?.trim() ||
    card.querySelector('.hover-info strong')?.textContent?.trim() ||
    card.querySelector('.poster-fg')?.alt?.trim() ||
    '';
 
-  return { title };
+  return {
+   title
+  };
+
  }
 
+
+
  function normalizeTitle(title){
+
   return String(title || '')
    .normalize('NFKC')
    .replace(/[\s.·]/g,'');
+
  }
+
+
 
  function getOstVideoId(title){
+
   const normalizedTitle=normalizeTitle(title);
-  const key=Object.keys(OST_VIDEO_MAP).find(k=>normalizeTitle(k)===normalizedTitle);
+
+  const key=Object.keys(OST_VIDEO_MAP)
+   .find(k=>normalizeTitle(k)===normalizedTitle);
+
 
   return key ? OST_VIDEO_MAP[key] : '';
+
  }
 
+
+
  function open(item){
+
   console.log('[CINEMA] open', item);
+
 
   ensure();
 
+
   const o=document.getElementById('collectionCinemaOverlay');
+
 
   console.log('[CINEMA] overlay', o);
 
+
   const id=getOstVideoId(item.title);
+
 
   console.log('[CINEMA] open ost id', id);
 
-  if(!id)return;
+
+  if(!id){
+   return;
+  }
+
 
   currentFrame=o.querySelector('.collection-cinema-bg-frame');
 
+
+  if(!currentFrame){
+   return;
+  }
+
+
   currentFrame.src=
-   `https://www.youtube.com/embed/${id}?autoplay=1&mute=0&enablejsapi=1&playsinline=1...
-&playsinline=1&controls=0&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1`;
+   `https://www.youtube.com/embed/${id}?autoplay=1&mute=0&enablejsapi=1&playsinline=1&controls=0&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1`;
+
 
   console.log('[CINEMA] iframe src', currentFrame.src);
 
+
   o.classList.add('active');
+
  }
 
+
+
  function close(){
+
   const o=document.getElementById('collectionCinemaOverlay');
 
-  if(!o)return;
+
+  if(!o){
+   return;
+  }
+
 
   o.classList.remove('active');
 
-  if(currentFrame) currentFrame.src='';
+
+  if(currentFrame){
+
+   currentFrame.src='';
+
+   currentFrame.removeAttribute('src');
+
+  }
+
+
+  currentFrame=null;
+
  }
+
+
 
  window.COLLECTION_CINEMA_OPEN=open;
 
+
+
  document.addEventListener('click',function(e){
+
 
   console.log('[CINEMA] CAPTURE CLICK', e.target);
 
+
   const card=e.target.closest('.media-card');
+
 
   console.log('[CINEMA] card', card);
 
-  if(!card)return;
+
+  if(!card){
+   return;
+  }
+
 
   const item=getItemFromCard(card);
 
+
   console.log('[CINEMA] item', item);
+
 
   const id=getOstVideoId(item.title);
 
+
   console.log('[CINEMA] ost id', id);
 
-  if(!id)return;
+
+  if(!id){
+   return;
+  }
+
 
   e.preventDefault();
+
   e.stopPropagation();
+
   e.stopImmediatePropagation();
+
 
   open(item);
 
+
  });
+
 
 })();
