@@ -48,7 +48,8 @@
  window.COLLECTION_CINEMA_OPEN=open;
 
  document.addEventListener('click',function(e){
-  const card=e.target.closest('.collection-card');
+  console.log('collection cinema click');
+  const card=e.target.closest('div');
   if(!card)return;
   const item=getItemFromCard(card);
   if(!OST_VIDEO_MAP[item.title]) return;
