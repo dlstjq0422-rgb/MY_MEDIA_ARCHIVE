@@ -38,3 +38,11 @@ pointer-events:auto;opacity:1;}
 
   transform:translate(-50%,-50%);
 }
+
+.collection-cinema-overlay {
+  display: none;
+}
+
+.collection-cinema-overlay.active {
+  display: block;
+}
