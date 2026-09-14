@@ -431,6 +431,10 @@ font-style:normal;
       .trailer-actions-v408{display:flex;gap:10px;align-items:center;margin-top:2px;}
       .trailer-youtube-link-v408{display:inline-flex;align-items:center;justify-content:center;min-width:108px;padding:11px 14px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.10);color:#dbe7ff;font-weight:700;text-decoration:none;font-size:13px;transition:.2s ease;}
       .trailer-youtube-link-v408:hover{background:rgba(255,255,255,.08);transform:translateY(-1px);}
+      .trailer-live-card-v422{text-align:center;}
+      .trailer-live-copy-v422{display:flex;flex-direction:column;align-items:center;text-align:center;}
+      .trailer-live-badges-v422{justify-content:center;}
+      .trailer-live-open-v422,.trailer-youtube-link-v408{height:42px;padding:11px 14px;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;}
       @media (max-width: 768px){.trailer-topbar-v408{align-items:flex-start}.trailer-actions-v408{flex-direction:column;align-items:stretch}.trailer-youtube-link-v408,.trailer-open-v171{width:100%;}}
     `;
     document.head.appendChild(style);
@@ -1001,6 +1005,25 @@ font-style:normal;
  });
  observer.observe(player,{attributes:true,attributeFilter:["src"]});
  window.__mmaTrailerIframeGuard={player:player,getLastSrc:function(){return lastSrc;}};
+})();
+</script>
+
+<script id="TRAILER_AUTO_CYCLE_V500">
+(function(){
+  let timer=null;
+  function startCycle(){
+    const section=document.getElementById('trailerLiveFeedV422');
+    if(!section || timer) return;
+    timer=setInterval(function(){
+      const refresh=section.querySelector('.trailer-live-refresh-v422');
+      if(refresh) refresh.click();
+    },30000);
+  }
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',startCycle);
+  }else{
+    startCycle();
+  }
 })();
 </script>
 </body>
