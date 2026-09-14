@@ -584,12 +584,12 @@ font-style:normal;
   window.__MMA_TRAILER_V422_INIT__ = true;
   const FEED = [
 {title:'파묘',videoId:'rjW9E1BR_30',channel:'쇼박스',tag:'KR MOVIE'},
-{title:'부산행',videoId:'1ovgxN2VWNc',channel:'NEW',tag:'KR MOVIE'},
+{title:'부산행',videoId:'1utHPEH-OLY',channel:'잇츠뉴',tag:'KR MOVIE'},
 {title:'기생충',videoId:'5xH0HfJHsaY',channel:'CJ ENM',tag:'KR MOVIE'},
-{title:'베테랑',videoId:'W9sWQ5W1p7A',channel:'CJ ENM',tag:'KR MOVIE'},
-{title:'헌트',videoId:'XG3f4d4z1qE',channel:'메가박스중앙',tag:'KR MOVIE'},
-{title:'밀수',videoId:'8n6dY8m1s2Q',channel:'NEW',tag:'KR MOVIE'},
-{title:'노량: 죽음의 바다',videoId:'z9k7s1p4QxM',channel:'롯데엔터테인먼트',tag:'KR MOVIE'},
+{title:'암살',videoId:'RnGxpZ75zFU',channel:'쇼박스 SHOWBOX',tag:'KR MOVIE'},
+{title:'콘크리트 유토피아',videoId:'hAO9a1xSo3M',channel:'롯데엔터테인먼트',tag:'KR MOVIE'},
+{title:'밀수',videoId:'NaAw1lWSbMY',channel:'Culture N Star',tag:'KR MOVIE'},
+{title:'노량: 죽음의 바다',videoId:'gXEpZpnImY8',channel:'롯데엔터테인먼트',tag:'KR MOVIE'},
 {title:'무빙',videoId:'8Q5r4v2Lk3A',channel:'Disney+',tag:'KR SERIES'},
 {title:'D.P.',videoId:'9m3x5Q7v2Ls',channel:'Netflix Korea',tag:'KR SERIES'},
 {title:'카지노',videoId:'7v2Kx5m9QaA',channel:'Disney+',tag:'KR SERIES'},
@@ -651,16 +651,16 @@ font-style:normal;
 {title:'범죄도시',videoId:'KR_MOVIE_34',channel:'한국영화',category:'KR MOVIE',tag:'KR MOVIE'},
 {title:'범죄도시2',videoId:'KR_MOVIE_35',channel:'한국영화',category:'KR MOVIE',tag:'KR MOVIE'}
  ,
-{title:'살인의 추억',videoId:'krm01',channel:'한국영화',tag:'KR MOVIE'},
-{title:'올드보이',videoId:'krm02',channel:'한국영화',tag:'KR MOVIE'},
-{title:'괴물',videoId:'krm03',channel:'한국영화',tag:'KR MOVIE'},
-{title:'타짜',videoId:'krm04',channel:'한국영화',tag:'KR MOVIE'},
-{title:'왕의 남자',videoId:'krm05',channel:'한국영화',tag:'KR MOVIE'},
-{title:'아저씨',videoId:'krm06',channel:'한국영화',tag:'KR MOVIE'},
-{title:'극한직업',videoId:'krm07',channel:'한국영화',tag:'KR MOVIE'},
-{title:'암살',videoId:'krm08',channel:'한국영화',tag:'KR MOVIE'},
-{title:'곡성',videoId:'krm09',channel:'한국영화',tag:'KR MOVIE'},
-{title:'모가디슈',videoId:'krm10',channel:'한국영화',tag:'KR MOVIE'},
+{title:'헤어질 결심',videoId:'_GKJAzlJm9Y',channel:'CJ ENM Movie',tag:'KR MOVIE'},
+{title:'파묘',videoId:'rjW9E1BR_30',channel:'쇼박스',tag:'KR MOVIE'},
+{title:'부산행',videoId:'1utHPEH-OLY',channel:'잇츠뉴',tag:'KR MOVIE'},
+{title:'기생충',videoId:'5xH0HfJHsaY',channel:'CJ ENM',tag:'KR MOVIE'},
+{title:'서울의 봄',videoId:'-AZ7cnwn2YI',channel:'플러스엠 엔터테인먼트',tag:'KR MOVIE'},
+{title:'범죄도시4',videoId:'pMAPj6WVsT4',channel:'ABO Entertainment',tag:'KR MOVIE'},
+{title:'암살',videoId:'RnGxpZ75zFU',channel:'쇼박스 SHOWBOX',tag:'KR MOVIE'},
+{title:'콘크리트 유토피아',videoId:'hAO9a1xSo3M',channel:'롯데엔터테인먼트',tag:'KR MOVIE'},
+{title:'밀수',videoId:'NaAw1lWSbMY',channel:'Culture N Star',tag:'KR MOVIE'},
+{title:'노량: 죽음의 바다',videoId:'gXEpZpnImY8',channel:'롯데엔터테인먼트',tag:'KR MOVIE'},
 {title:'나의 해방일지',videoId:'krs01',channel:'한국드라마',tag:'KR SERIES'},
 {title:'이태원 클라쓰',videoId:'krs02',channel:'한국드라마',tag:'KR SERIES'},
 {title:'미생',videoId:'krs03',channel:'한국드라마',tag:'KR SERIES'},
@@ -765,6 +765,7 @@ font-style:normal;
       if(!x || !x.videoId) return;
       if(BAD_IDS.includes(x.videoId)) return;
       if(String(x.videoId).startsWith('placeholder')) return;
+      if(/^KR_(MOVIE|SERIES)_\d+$/i.test(String(x.videoId))) return;
       
       if(seen.has(x.videoId)) return;
       seen.add(x.videoId);
@@ -820,8 +821,13 @@ font-style:normal;
       refreshBtn.addEventListener('click', () => {
         const current = sliceItems(pageIndex);
         const stepPool = current.length || FEED.length;
-        const poolSize = currentCategory==='ALL' ? FEED.filter(x=>x && x.videoId && !BAD_IDS.includes(x.videoId)).length : FEED.filter(x=>x && x.videoId && (x.category===currentCategory || x.tag===currentCategory) && !BAD_IDS.includes(x.videoId)).length;
-        pageIndex = (pageIndex + PAGE_SIZE) % Math.max(1, poolSize);
+        const cleanedPool = FEED.filter(x=>x && x.videoId && !BAD_IDS.includes(x.videoId) && !/^KR_(MOVIE|SERIES)_\d+$/i.test(String(x.videoId)));
+        const pool = currentCategory==='ALL' ? cleanedPool : cleanedPool.filter(x=>x.category===currentCategory || x.tag===currentCategory);
+        if(pool.length){
+          pageIndex = Math.floor(Math.random()*pool.length);
+        } else {
+          pageIndex = 0;
+        }
         draw(sliceItems(pageIndex));
       });
     }
