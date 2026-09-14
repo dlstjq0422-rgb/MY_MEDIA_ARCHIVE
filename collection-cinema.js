@@ -64,6 +64,6 @@ e.stopPropagation();
 e.stopImmediatePropagation();
 
 open(item);
- }
+});
 
 })();
