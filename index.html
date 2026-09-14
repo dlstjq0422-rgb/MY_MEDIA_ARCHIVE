@@ -423,7 +423,8 @@ font-style:normal;
       .trailer-card-v152.is-hidden-v408{display:none;}
       .trailer-poster-v152 .poster-status-v408{position:absolute;top:12px;left:12px;z-index:4;padding:6px 10px;border-radius:999px;background:rgba(5,10,20,.82);border:1px solid rgba(136,164,255,.34);color:#eef3ff;font-size:11px;font-weight:800;letter-spacing:.08em;}
       .trailer-poster-v152 .poster-playhint-v408{position:absolute;bottom:14px;left:14px;z-index:4;padding:7px 11px;border-radius:999px;background:rgba(7,10,18,.78);color:#f4f7ff;font-size:11px;font-weight:700;letter-spacing:.08em;border:1px solid rgba(255,255,255,.12);}
-      .trailer-card-copy-v408{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;margin-top:12px;min-height:210px;}
+      .trailer-card-v152{display:flex;flex-direction:column;height:100%;}
+      .trailer-card-copy-v408{display:flex;flex-direction:column;flex:1;align-items:center;text-align:center;gap:10px;margin-top:12px;min-height:210px;}
       .trailer-card-copy-v408 h2{margin:0;text-align:center;}
       .trailer-card-copy-v408 .trailer-actions-v408{margin-top:auto;display:flex;justify-content:center;gap:10px;width:100%;}
       .trailer-card-copy-v408 .trailer-open-v171,
@@ -575,7 +576,7 @@ font-style:normal;
         const visible = idx >= start && idx < start + 6;
         card.classList.toggle('is-hidden-v408', !visible);
       });
-      cycleIndex += 6;
+      cycleIndex = start + 6;
       if(cycleIndex >= cycleCards.length) cycleIndex = 0;
     }
     refreshMainTrailerCards();
