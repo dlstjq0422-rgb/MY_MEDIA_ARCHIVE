@@ -29,10 +29,22 @@
   return { title };
  }
 
+ function normalizeTitle(title){
+  return String(title || '')
+   .normalize('NFKC')
+   .replace(/[\s.·]/g,'');
+ }
+
+ function getOstVideoId(title){
+  const normalizedTitle=normalizeTitle(title);
+  const key=Object.keys(OST_VIDEO_MAP).find(k=>normalizeTitle(k)===normalizedTitle);
+  return key ? OST_VIDEO_MAP[key] : '';
+ }
+
  function open(item){
   ensure();
   const o=document.getElementById('collectionCinemaOverlay');
-  const id=OST_VIDEO_MAP[item.title];
+  const id=getOstVideoId(item.title);
   if(!id)return;
 
   currentFrame=o.querySelector('.collection-cinema-bg-frame');
@@ -55,16 +67,15 @@
   if(!card)return;
 
   const item=getItemFromCard(card);
-  if(!item || !item.title)return;
+  const id=getOstVideoId(item.title);
 
-  const id=OST_VIDEO_MAP[item.title];
-  if(!id)return;
+if(!id)return;
 
 e.preventDefault();
 e.stopPropagation();
 e.stopImmediatePropagation();
 
 open(item);
-});
+ });
 
 })();
