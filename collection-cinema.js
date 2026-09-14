@@ -21,9 +21,12 @@
  }
 
  function getItemFromCard(card){
-  return {
-   title:card.querySelector('.hover-info strong')?.textContent?.trim() || ''
-  };
+  const title =
+   card.querySelector('.media-title')?.textContent?.trim() ||
+   card.querySelector('.hover-info strong')?.textContent?.trim() ||
+   card.querySelector('.poster-fg')?.alt?.trim() ||
+   '';
+  return { title };
  }
 
  function open(item){
@@ -47,22 +50,20 @@
 
  window.COLLECTION_CINEMA_OPEN=open;
 
- function cinemaCollectionHandler(e){
-  const card=e.target.closest('.collection-card');
+ document.addEventListener('click',function(e){
+  const card=e.target.closest('.media-card');
   if(!card)return;
 
   const item=getItemFromCard(card);
   const id=OST_VIDEO_MAP[item.title];
 
-  // Only override the existing collection modal for cinema-enabled titles.
-  if(!id)return;
+if(!id)return;
 
-  e.preventDefault();
-  e.stopPropagation();
-  e.stopImmediatePropagation();
+e.preventDefault();
+e.stopPropagation();
+e.stopImmediatePropagation();
 
-  open(item);
+open(item);
  }
 
- document.addEventListener('click', cinemaCollectionHandler, true);
 })();
