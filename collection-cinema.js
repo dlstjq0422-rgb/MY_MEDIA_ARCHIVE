@@ -17,10 +17,37 @@ console.log('[CINEMA] SCRIPT LOADED');
   const o=document.createElement('div');
   o.id='collectionCinemaOverlay';
   o.className='collection-cinema-overlay';
-  o.innerHTML='<div class="collection-cinema-video-bg"><iframe class="collection-cinema-bg-frame" allow="autoplay; fullscreen"></iframe></div><div class="collection-cinema-dark"></div><button class="collection-cinema-close">×</button>';
+  o.innerHTML='<div class="collection-cinema-video-bg"><iframe class="collection-cinema-bg-frame" allow="autoplay; fullscreen"></iframe></div><div class="collection-cinema-dark"></div><button class="collection-cinema-close">×</button>';<button class="collection-cinema-sound">🔊</button>';
   document.body.appendChild(o);
 
-  o.querySelector('.collection-cinema-close').onclick=close;
+ o.querySelector('.collection-cinema-sound').onclick=function(e){
+ e.stopPropagation();
+
+ const frame=o.querySelector('.collection-cinema-bg-frame');
+
+ if(!frame)return;
+
+ if(this.dataset.muted==="true"){
+   frame.contentWindow.postMessage(
+    '{"event":"command","func":"unMute","args":""}',
+    '*'
+   );
+
+   this.textContent="🔊";
+   this.dataset.muted="false";
+
+ }else{
+
+   frame.contentWindow.postMessage(
+    '{"event":"command","func":"mute","args":""}',
+    '*'
+   );
+
+   this.textContent="🔇";
+   this.dataset.muted="true";
+ }
+
+};
   o.onclick=e=>{if(e.target===o)close()};
  }
 
@@ -65,7 +92,8 @@ console.log('[CINEMA] SCRIPT LOADED');
   currentFrame=o.querySelector('.collection-cinema-bg-frame');
 
   currentFrame.src=
-   `https://www.youtube.com/embed/${id}?autoplay=1&mute=0&playsinline=1&controls=0&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1`;
+   `https://www.youtube.com/embed/${id}?autoplay=1&mute=0&enablejsapi=1&playsinline=1...
+&playsinline=1&controls=0&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1`;
 
   console.log('[CINEMA] iframe src', currentFrame.src);
 
