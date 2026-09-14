@@ -21,9 +21,12 @@
  }
 
  function getItemFromCard(card){
-  return {
-   title:card.querySelector('.hover-info strong')?.textContent?.trim() || ''
-  };
+  const title =
+   card.querySelector('.media-title')?.textContent?.trim() ||
+   card.querySelector('.hover-info strong')?.textContent?.trim() ||
+   card.querySelector('.poster-fg')?.alt?.trim() ||
+   '';
+  return { title };
  }
 
  function open(item){
@@ -48,8 +51,7 @@
  window.COLLECTION_CINEMA_OPEN=open;
 
  document.addEventListener('click',function(e){
-  console.log('collection cinema click');
-  const card=e.target.closest('div');
+  const card=e.target.closest('.media-card');
   if(!card)return;
   const item=getItemFromCard(card);
   if(!OST_VIDEO_MAP[item.title]) return;
