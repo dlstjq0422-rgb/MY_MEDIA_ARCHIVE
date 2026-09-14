@@ -988,6 +988,21 @@ font-style:normal;
  setInterval(check,1000);
 })();
 </script>
+
+<script id="TRAILER_IFRAME_SINGLE_ATTACH_GUARD_V500">
+(function(){
+ const player=document.getElementById("TRAILER_PLAYER_V214");
+ if(!player) return;
+ let lastSrc="";
+ const observer=new MutationObserver(function(){
+   if(player.src && player.src!==lastSrc){
+     lastSrc=player.src;
+   }
+ });
+ observer.observe(player,{attributes:true,attributeFilter:["src"]});
+ window.__mmaTrailerIframeGuard={player:player,getLastSrc:function(){return lastSrc;}};
+})();
+</script>
 </body>
 </html>
 
