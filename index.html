@@ -47,11 +47,6 @@ font-style:normal;
 <link rel="stylesheet" href="trailer-real-poster-v401.css">
   <link rel="stylesheet" href="trailer-real-posters-v402.css">
 <link rel="stylesheet" href="trailer-render-poster-v403.css">
-<style>
-.trailer-card-v152{display:flex;flex-direction:column;height:100%;}
-.trailer-card-copy-v408{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;}
-.trailer-actions-v408{margin-top:auto;}
-</style>
 </head>
 <body>
 <div id="cinematic-background"></div>
@@ -428,8 +423,7 @@ font-style:normal;
       .trailer-card-v152.is-hidden-v408{display:none;}
       .trailer-poster-v152 .poster-status-v408{position:absolute;top:12px;left:12px;z-index:4;padding:6px 10px;border-radius:999px;background:rgba(5,10,20,.82);border:1px solid rgba(136,164,255,.34);color:#eef3ff;font-size:11px;font-weight:800;letter-spacing:.08em;}
       .trailer-poster-v152 .poster-playhint-v408{position:absolute;bottom:14px;left:14px;z-index:4;padding:7px 11px;border-radius:999px;background:rgba(7,10,18,.78);color:#f4f7ff;font-size:11px;font-weight:700;letter-spacing:.08em;border:1px solid rgba(255,255,255,.12);}
-      .trailer-card-v152{display:flex;flex-direction:column;height:100%;}
-      .trailer-card-copy-v408{display:flex;flex-direction:column;flex:1;align-items:center;text-align:center;gap:10px;margin-top:12px;min-height:210px;}
+      .trailer-card-copy-v408{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;margin-top:12px;min-height:210px;}
       .trailer-card-copy-v408 h2{margin:0;text-align:center;}
       .trailer-card-copy-v408 .trailer-actions-v408{margin-top:auto;display:flex;justify-content:center;gap:10px;width:100%;}
       .trailer-card-copy-v408 .trailer-open-v171,
@@ -437,7 +431,7 @@ font-style:normal;
       .trailer-chip-row-v408{display:flex;flex-wrap:wrap;gap:8px;}
       .trailer-chip-v408{padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid rgba(125,146,214,.12);font-size:11px;color:#bfd0ff;font-weight:700;letter-spacing:.05em;}
       .trailer-summary-v408{margin:0;color:#aab8dc;line-height:1.55;font-size:13px;min-height:40px;}
-      .trailer-actions-v408{display:flex;gap:10px;align-items:center;margin-top:2px;}.trailer-card-v152 .trailer-card-copy-v408{display:flex;flex-direction:column;align-items:center;text-align:center;min-height:210px}.trailer-card-v152 .trailer-card-copy-v408{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center}.trailer-card-v152 .trailer-actions-v408{margin-top:auto;display:flex;justify-content:center;align-items:center;min-height:42px}.trailer-card-v152 .trailer-open-v171,.trailer-card-v152 .trailer-youtube-link-v408{height:42px;min-height:42px;padding:0 16px;border-radius:12px;display:inline-flex;align-items:center;justify-content:center}
+      .trailer-actions-v408{display:flex;gap:10px;align-items:center;margin-top:2px;}.trailer-card-v152 .trailer-card-copy-v408{display:flex;flex-direction:column;align-items:center;text-align:center;min-height:210px}.trailer-card-v152 .trailer-actions-v408{margin-top:auto;display:flex;justify-content:center;align-items:center}.trailer-card-v152 .trailer-open-v171,.trailer-card-v152 .trailer-youtube-link-v408{height:42px;min-height:42px;padding:0 16px;border-radius:12px;display:inline-flex;align-items:center;justify-content:center}
       .trailer-youtube-link-v408{display:inline-flex;align-items:center;justify-content:center;min-width:108px;padding:11px 14px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.10);color:#dbe7ff;font-weight:700;text-decoration:none;font-size:13px;transition:.2s ease;}
       .trailer-youtube-link-v408:hover{background:rgba(255,255,255,.08);transform:translateY(-1px);}
       .trailer-live-card-v422{text-align:center;}
@@ -571,32 +565,22 @@ font-style:normal;
     });
     applyFilter('ALL');
 
-    // v471 main trailer archive cycle: reuse static 6 cards and inject data window
+    // v471 main trailer archive cycle: rerender visible window from the real card list
     let cycleIndex = 0;
     const cycleCards = Array.from(section.querySelectorAll('.trailer-grid-v152 > .trailer-card-v152'));
-    const cycleData = Object.entries(trailers).map(([title,item])=>({title, ...item}));
-    function updateMainTrailerCards(){
-      if(cycleCards.length !== 6 || cycleData.length <= 6) return;
+    function renderMainTrailerWindow(){
+      if(cycleCards.length <= 6) return;
+      const visible = new Set();
+      for(let i=0;i<6;i++){
+        visible.add((cycleIndex + i) % cycleCards.length);
+      }
       cycleCards.forEach((card, idx)=>{
-        const item = cycleData[(cycleIndex + idx) % cycleData.length];
-        const h2 = card.querySelector('h2');
-        const summary = card.querySelector('.trailer-summary-v408');
-        const chips = card.querySelector('.trailer-chip-row-v408');
-        const poster = card.querySelector('.poster-image-v166');
-        const link = card.querySelector('.trailer-youtube-link-v408');
-        if(h2) h2.textContent = item.title;
-        if(summary) summary.textContent = item.summary || '';
-        if(chips) chips.textContent = [item.studio, ...(item.tags || [])].join(' · ');
-        if(poster) poster.src = 'https://img.youtube.com/vi/' + item.youtubeId + '/hqdefault.jpg';
-        if(link) link.href = 'https://www.youtube.com/watch?v=' + item.youtubeId;
-        card.dataset.trailerTitle = item.title;
+        card.classList.toggle('is-hidden-v408', !visible.has(idx));
       });
-      cycleIndex += 6;
-      if(cycleIndex >= cycleData.length) cycleIndex = 0;
+      cycleIndex = (cycleIndex + 6) % cycleCards.length;
     }
-
-updateMainTrailerCards();
-    window.setInterval(updateMainTrailerCards, 15000);
+    renderMainTrailerWindow();
+    window.setInterval(renderMainTrailerWindow, 15000);
   }
 
   if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
