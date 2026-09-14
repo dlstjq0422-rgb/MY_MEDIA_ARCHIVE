@@ -17,10 +17,9 @@ console.log('[CINEMA] SCRIPT LOADED');
   const o=document.createElement('div');
   o.id='collectionCinemaOverlay';
   o.className='collection-cinema-overlay';
-  o.innerHTML='<div class="collection-cinema-video-bg"><iframe class="collection-cinema-bg-frame" allow="autoplay; fullscreen"></iframe></div><div class="collection-cinema-dark"></div><button class="collection-cinema-close">×</button>';<button class="collection-cinema-sound">🔊</button>';
+ o.innerHTML='<div class="collection-cinema-video-bg"><iframe class="collection-cinema-bg-frame" allow="autoplay; fullscreen"></iframe></div><div class="collection-cinema-dark"></div><button class="collection-cinema-close">×</button>';
   document.body.appendChild(o);
 
- o.querySelector('.collection-cinema-sound').onclick=function(e){
  e.stopPropagation();
 
  const frame=o.querySelector('.collection-cinema-bg-frame');
