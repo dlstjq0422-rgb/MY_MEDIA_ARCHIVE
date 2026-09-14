@@ -47,6 +47,11 @@ font-style:normal;
 <link rel="stylesheet" href="trailer-real-poster-v401.css">
   <link rel="stylesheet" href="trailer-real-posters-v402.css">
 <link rel="stylesheet" href="trailer-render-poster-v403.css">
+<style>
+.trailer-card-v152{display:flex;flex-direction:column;height:100%;}
+.trailer-card-copy-v408{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;}
+.trailer-actions-v408{margin-top:auto;}
+</style>
 </head>
 <body>
 <div id="cinematic-background"></div>
@@ -569,23 +574,28 @@ font-style:normal;
     // v471 main trailer archive cycle: reuse static 6 cards and inject data window
     let cycleIndex = 0;
     const cycleCards = Array.from(section.querySelectorAll('.trailer-grid-v152 > .trailer-card-v152'));
-    const cycleData = Object.keys(trailers);
+    const cycleData = Object.entries(trailers).map(([title,item])=>({title, ...item}));
     function updateMainTrailerCards(){
       if(cycleCards.length !== 6 || cycleData.length <= 6) return;
       cycleCards.forEach((card, idx)=>{
-        const title = cycleData[(cycleIndex + idx) % cycleData.length];
-        const item = trailers[title];
+        const item = cycleData[(cycleIndex + idx) % cycleData.length];
         const h2 = card.querySelector('h2');
         const summary = card.querySelector('.trailer-summary-v408');
-        if(h2) h2.textContent = title;
+        const chips = card.querySelector('.trailer-chip-row-v408');
+        const poster = card.querySelector('.poster-image-v166');
+        const link = card.querySelector('.trailer-youtube-link-v408');
+        if(h2) h2.textContent = item.title;
         if(summary) summary.textContent = item.summary || '';
-        card.dataset.trailerTitle = title;
-        card.classList.remove('is-hidden-v408');
+        if(chips) chips.textContent = [item.studio, ...(item.tags || [])].join(' · ');
+        if(poster) poster.src = 'https://img.youtube.com/vi/' + item.youtubeId + '/hqdefault.jpg';
+        if(link) link.href = 'https://www.youtube.com/watch?v=' + item.youtubeId;
+        card.dataset.trailerTitle = item.title;
       });
       cycleIndex += 6;
       if(cycleIndex >= cycleData.length) cycleIndex = 0;
     }
-    updateMainTrailerCards();
+
+updateMainTrailerCards();
     window.setInterval(updateMainTrailerCards, 15000);
   }
 
