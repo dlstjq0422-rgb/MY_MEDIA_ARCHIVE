@@ -565,22 +565,13 @@ font-style:normal;
     });
     applyFilter('ALL');
 
-    // v471 main trailer archive cycle: rerender visible window from the real card list
-    let cycleIndex = 0;
-    const cycleCards = Array.from(section.querySelectorAll('.trailer-grid-v152 > .trailer-card-v152'));
-    function renderMainTrailerWindow(){
-      if(cycleCards.length <= 6) return;
-      const visible = new Set();
-      for(let i=0;i<6;i++){
-        visible.add((cycleIndex + i) % cycleCards.length);
-      }
-      cycleCards.forEach((card, idx)=>{
-        card.classList.toggle('is-hidden-v408', !visible.has(idx));
-      });
-      cycleIndex = (cycleIndex + 6) % cycleCards.length;
+    // v471: static legacy main trailer cards are preserved but not rendered.
+    // LIVE TRAILER FEED uses the existing FEED render/refresh flow.
+    const legacyGrid = section.querySelector('.trailer-grid-v152');
+    if(legacyGrid){
+      legacyGrid.dataset.legacyStatic='hidden';
+      legacyGrid.style.display='none';
     }
-    renderMainTrailerWindow();
-    window.setInterval(renderMainTrailerWindow, 15000);
   }
 
   if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
